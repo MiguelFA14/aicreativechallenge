@@ -19,13 +19,13 @@
   --r:10px; --max:900px;
   --fh:'Syne',sans-serif; --fb:'DM Sans',sans-serif; --fm:'DM Mono',monospace;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100vh;overflow-x:hidden}
 
 /* ── LANDING ── */
 .landing{
   min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-  padding:3rem 1.5rem;position:relative;overflow:hidden;
+  padding:3rem 4vw;;position:relative;overflow:hidden;
   background:var(--ink);
 }
 .landing::before{
@@ -37,7 +37,7 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
   pointer-events:none;
 }
 .landing-accent{position:absolute;top:0;left:0;width:6px;height:100%;background:var(--mag)}
-.landing-inner{max-width:var(--max);margin:0 auto;width:100%;position:relative;z-index:1}
+.landing-inner{width:100%;position:relative;z-index:1}
 
 .landing-eyebrow{
   font-family:var(--fm);font-size:.68rem;letter-spacing:.18em;
