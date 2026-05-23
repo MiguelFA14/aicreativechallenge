@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Creative Challenge — Guía del Alumno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --mag:#E2005A; --mag-l:#fff0f5;
+  --cyan:#0094C6; --cyan-l:#e8f6fb;
+  --lime:#4EA820; --lime-l:#eef8e7;
+  --gold:#C08B00; --gold-l:#fffbea;
+  --ink:#0f0f0f; --steel:#2B2D42; --mid:#7A7F96;
+  --lite:#e4e4e4; --chalk:#f7f7f5; --white:#fff;
+  --r:10px; --max:900px;
+  --fh:'Syne',sans-serif; --fb:'DM Sans',sans-serif; --fm:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100vh;overflow-x:hidden}
+
+/* ── LANDING ── */
+.landing{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding:3rem 1.5rem;position:relative;overflow:hidden;
+  background:var(--ink);
+}
+.landing::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 55% at 85% 15%,rgba(226,0,90,.2) 0%,transparent 65%),
+    radial-gradient(ellipse 55% 45% at 5% 85%,rgba(0,148,198,.14) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 35% at 50% 50%,rgba(78,168,32,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.landing-accent{position:absolute;top:0;left:0;width:6px;height:100%;background:var(--mag)}
+.landing-inner{max-width:var(--max);margin:0 auto;width:100%;position:relative;z-index:1}
+
+.landing-eyebrow{
+  font-family:var(--fm);font-size:.68rem;letter-spacing:.18em;
+  color:var(--mag);text-transform:uppercase;margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:.6rem;
+}
+.landing-eyebrow::before{content:'';width:28px;height:2px;background:var(--mag)}
+
+.landing-title{
+  font-family:var(--fh);font-weight:800;line-height:.9;
+  margin-bottom:1.75rem;
+}
+.landing-title .l1{font-size:clamp(4.5rem,14vw,9rem);color:var(--white);display:block}
+.landing-title .l2{font-size:clamp(4rem,12vw,8rem);color:var(--mag);display:block}
+.landing-title .l3{font-size:clamp(4rem,12vw,8rem);color:var(--cyan);display:block}
+
+.landing-rule{height:2px;background:linear-gradient(90deg,var(--mag),var(--cyan),transparent);margin:1.75rem 0}
+
+.landing-tagline{
+  font-size:clamp(1rem,2.5vw,1.3rem);color:#ddd;
+  font-style:italic;margin-bottom:.6rem;line-height:1.5;
+  max-width:600px;
+}
+.landing-sub{font-size:.9rem;color:var(--mid);margin-bottom:2.5rem;max-width:560px;line-height:1.6}
+
+/* Pills semana */
+.landing-semanas{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:3rem}
+.sem-pill{
+  font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.04em;
+  padding:.4rem 1rem;border-radius:99px;color:var(--white);
+  display:flex;align-items:center;gap:.4rem;
+}
+.sem-pill .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5)}
+.sp1{background:var(--mag)}.sp2{background:var(--cyan)}
+.sp3{background:var(--lime)}.sp4{background:var(--gold)}
+.sem-pill.meta{background:#1a1a1a;border:1px solid rgba(255,255,255,.1);color:#888}
+
+/* CTA */
+.landing-cta{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  font-family:var(--fh);font-size:.85rem;font-weight:700;letter-spacing:.05em;
+  background:var(--mag);color:var(--white);border:none;
+  padding:.8rem 2rem;border-radius:99px;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 0 0 0 rgba(226,0,90,.4);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(226,0,90,.35)}
+.btn-secondary{
+  font-family:var(--fh);font-size:.82rem;font-weight:700;letter-spacing:.05em;
+  background:transparent;color:var(--white);
+  border:1px solid rgba(255,255,255,.2);
+  padding:.75rem 1.75rem;border-radius:99px;cursor:pointer;
+  transition:border-color .2s,color .2s;
+  text-decoration:none;
+}
+.btn-secondary:hover{border-color:var(--mag);color:var(--mag)}
+
+/* Scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;color:var(--mid);
+  text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+.scroll-hint::after{content:'↓';font-size:.9rem}
+
+/* ── NAV ── */
+.nav-wrap{position:sticky;top:0;z-index:100;background:rgba(15,15,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center}
+.nav-tabs{display:flex;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;background:none;border:none;color:var(--mid);font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.04em;padding:1rem 1.1rem;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;text-transform:uppercase;display:flex;align-items:center;gap:.4rem}
+.tab-btn:hover{color:var(--white)}
+.tab-btn.active{color:var(--white)}
+.tab-btn.active.w0{border-color:var(--mag);color:var(--mag)}
+.tab-btn.active.w1{border-color:var(--mag);color:var(--mag)}
+.tab-btn.active.w2{border-color:var(--cyan);color:var(--cyan)}
+.tab-btn.active.w3{border-color:var(--lime);color:var(--lime)}
+.tab-btn.active.w4{border-color:var(--gold);color:var(--gold)}
+.tab-btn.active.w5{border-color:var(--mid);color:var(--white)}
+.tab-btn.active.w6{border-color:var(--cyan);color:var(--cyan)}
+.tab-btn.active.w7{border-color:var(--gold);color:var(--gold)}
+.tab-btn.active.w8{border-color:var(--mag);color:var(--mag)}
+.tab-dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.w1 .tab-dot{background:var(--mag)}.w2 .tab-dot{background:var(--cyan)}
+.w3 .tab-dot{background:var(--lime)}.w4 .tab-dot{background:var(--gold)}
+.nav-dl{flex-shrink:0;padding:.6rem 1rem}
+
+/* ── MAIN ── */
+.main{max-width:var(--max);margin:0 auto;padding:2.5rem 1.5rem 4rem}
+.tab-panel{display:none;animation:fadeIn .3s ease}
+.tab-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── INTRO TAB ── */
+.intro-hero{
+  background:#111;border-radius:var(--r);padding:2rem 2rem 1.75rem;
+  margin-bottom:2rem;position:relative;overflow:hidden;
+  border-top:4px solid var(--mag);
+}
+.intro-hero::after{
+  content:'AI';position:absolute;right:-20px;bottom:-30px;
+  font-family:var(--fh);font-size:9rem;font-weight:800;
+  opacity:.04;color:var(--white);pointer-events:none;line-height:1;
+}
+.intro-hero-tag{font-family:var(--fm);font-size:.65rem;letter-spacing:.14em;color:var(--mag);text-transform:uppercase;margin-bottom:.75rem}
+.intro-hero-title{font-family:var(--fh);font-weight:800;font-size:1.6rem;color:var(--white);margin-bottom:.75rem;line-height:1.1}
+.intro-hero-body{font-size:.95rem;color:#bbb;line-height:1.7;max-width:680px}
+.intro-hero-body strong{color:var(--white)}
+
+/* Por qué lo hacemos */
+.porque-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1.5rem 0}
+.porque-card{
+  background:#111;border-radius:var(--r);padding:1.25rem;
+  border:1px solid rgba(255,255,255,.06);
+  position:relative;overflow:hidden;
+}
+.porque-card::before{
+  content:attr(data-num);
+  position:absolute;right:.75rem;top:.5rem;
+  font-family:var(--fh);font-size:3.5rem;font-weight:800;
+  opacity:.06;color:var(--white);line-height:1;
+}
+.porque-accent{width:32px;height:3px;border-radius:2px;margin-bottom:.75rem}
+.porque-title{font-family:var(--fh);font-weight:700;font-size:.95rem;color:var(--white);margin-bottom:.4rem}
+.porque-desc{font-size:.82rem;color:var(--mid);line-height:1.55}
+
+/* OdiseIA banner */
+.odiseia-banner{
+  background:#111;border-radius:var(--r);padding:1.5rem;
+  border-left:4px solid var(--mag);margin:1.5rem 0;
+  display:flex;gap:1.25rem;align-items:flex-start;
+}
+.odiseia-icon{font-size:2rem;flex-shrink:0;margin-top:.1rem}
+.odiseia-body{}
+.odiseia-tag{font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;color:var(--mag);text-transform:uppercase;margin-bottom:.4rem}
+.odiseia-title{font-family:var(--fh);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:.5rem}
+.odiseia-text{font-size:.875rem;color:#bbb;line-height:1.6}
+.odiseia-text strong{color:var(--white)}
+
+/* Cómo funciona timeline */
+.timeline{margin:1.5rem 0}
+.tl-item{display:flex;gap:1rem;margin-bottom:.5rem}
+.tl-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:40px}
+.tl-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:.8rem;color:var(--white);flex-shrink:0}
+.tl-line{width:2px;flex:1;min-height:20px;margin:4px 0;background:rgba(255,255,255,.08)}
+.tl-item:last-child .tl-line{display:none}
+.tl-content{padding:.4rem 0 1rem}
+.tl-week{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.25rem}
+.tl-title{font-family:var(--fh);font-weight:700;font-size:.95rem;color:var(--white);margin-bottom:.3rem}
+.tl-desc{font-size:.82rem;color:var(--mid);line-height:1.5}
+
+/* Colectivos */
+.colectivos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.6rem;margin:1rem 0}
+.colectivo{background:#1a1a1a;border-radius:8px;padding:.9rem .75rem;text-align:center;border:1px solid rgba(255,255,255,.06);border-top:3px solid var(--mag);transition:transform .2s}
+.colectivo:hover{transform:translateY(-2px)}
+.col-emoji{font-size:1.5rem;display:block;margin-bottom:.4rem}
+.col-title{font-family:var(--fh);font-size:.75rem;font-weight:700;color:var(--white);margin-bottom:.25rem}
+.col-desc{font-size:.68rem;color:var(--mid);line-height:1.4}
+
+/* Tools table */
+.tools-table{width:100%;border-collapse:collapse;font-size:.82rem;overflow:hidden;margin-bottom:1rem;border-radius:var(--r)}
+.tools-table th{background:#111;padding:.7rem .9rem;text-align:left;font-family:var(--fm);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.tools-table th:first-child{color:var(--mag)}.tools-table th:not(:first-child){color:#aaa}
+.tools-table td{padding:.65rem .9rem;border-top:1px solid rgba(255,255,255,.05);color:#ccc;vertical-align:top}
+.tools-table tr:nth-child(odd) td{background:rgba(255,255,255,.02)}
+.tools-table tr:hover td{background:rgba(255,255,255,.05)}
+.tools-table td:first-child{font-family:var(--fh);font-weight:700;color:var(--white)}
+.tool-access{font-family:var(--fm);font-size:.7rem;color:var(--mid)}
+
+/* Rubric */
+.rubric-table{width:100%;border-collapse:collapse;font-size:.78rem;overflow:hidden;margin-bottom:1rem}
+.rubric-table th{background:#111;padding:.65rem .8rem;text-align:left;font-family:var(--fm);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:#aaa}
+.rubric-table th:first-child{color:var(--mag)}.rubric-table th.gold-col{color:var(--gold)}
+.rubric-table td{padding:.6rem .8rem;border-top:1px solid rgba(255,255,255,.05);color:#bbb;vertical-align:top;line-height:1.4}
+.rubric-table tr:nth-child(odd) td{background:rgba(255,255,255,.02)}
+.rubric-table td:first-child{font-family:var(--fh);font-weight:700;color:var(--white);font-size:.83rem}
+.rubric-table td.gold-col{background:rgba(192,139,0,.08)!important;color:var(--gold);font-weight:600}
+.rubric-table td.peso{font-family:var(--fm);font-size:.72rem;color:var(--mag);font-weight:700}
+.rubric-total td{background:#111!important;font-family:var(--fh);font-weight:700;color:var(--mag)!important}
+.rubric-total .peso{color:var(--gold)!important}
+
+/* ── SEMANA HEADER ── */
+.week-banner{border-radius:var(--r);padding:1.5rem 1.75rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.week-banner::after{content:attr(data-label);position:absolute;right:-10px;top:-20px;font-family:var(--fh);font-size:8rem;font-weight:800;opacity:.06;line-height:1;color:var(--white);pointer-events:none}
+.wb-mag{background:linear-gradient(135deg,#8a0035 0%,#c0004a 100%)}
+.wb-cyan{background:linear-gradient(135deg,#005b7a 0%,#0080aa 100%)}
+.wb-lime{background:linear-gradient(135deg,#2d6010 0%,#3f8a18 100%)}
+.wb-gold{background:linear-gradient(135deg,#7a5800 0%,#a87800 100%)}
+.week-num{font-family:var(--fm);font-size:.68rem;letter-spacing:.14em;opacity:.8;text-transform:uppercase;margin-bottom:.4rem}
+.week-title{font-family:var(--fh);font-size:1.6rem;font-weight:800;margin-bottom:.3rem}
+.week-sub{font-size:.85rem;opacity:.75;font-style:italic}
+
+/* Progress */
+.semana-progress{display:flex;gap:.4rem;margin-bottom:2rem;align-items:center}
+.sp-label{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:var(--mid);text-transform:uppercase;margin-right:.4rem}
+.sp-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15)}
+.sp-dot.active{background:var(--mag);border-color:var(--mag)}
+.sp-dot.c{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.3)}
+
+/* Aviso P20 */
+.aviso-p20{background:#1a1a1a;border-radius:var(--r);border-left:4px solid var(--cyan);padding:1rem 1.25rem;margin-bottom:2rem;display:flex;gap:.9rem;align-items:flex-start}
+.aviso-icon{font-size:1.2rem;flex-shrink:0;margin-top:.1rem}
+.aviso-text{font-size:.875rem;color:#bbb;line-height:1.6}
+.aviso-text strong{color:var(--white)}
+
+/* ── FASE CARD ── */
+.fase{margin-bottom:1.5rem}
+.fase-header{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:1rem;padding:1.1rem 1.25rem;border-radius:var(--r) var(--r) 0 0;cursor:pointer;user-select:none;position:relative;transition:filter .2s}
+.fase-header:hover{filter:brightness(1.08)}
+.fase-tag{font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:.25rem}
+.fase-num{font-family:var(--fh);font-weight:800;font-size:2rem;opacity:.12;position:absolute;right:3.5rem;top:50%;transform:translateY(-50%);pointer-events:none}
+.fase-title{font-family:var(--fh);font-weight:800;font-size:1.1rem;color:var(--white)}
+.fase-subtitle{font-size:.78rem;opacity:.7;margin-top:.2rem;font-style:italic}
+.fase-tiempo{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;background:rgba(0,0,0,.25);padding:.25rem .6rem;border-radius:99px;white-space:nowrap;flex-shrink:0}
+.fase-chevron{font-size:.8rem;opacity:.5;transition:transform .3s;flex-shrink:0}
+.fase.open .fase-chevron{transform:rotate(180deg)}
+.fase-body{background:#161616;border:1px solid rgba(255,255,255,.06);border-top:none;border-radius:0 0 var(--r) var(--r);overflow:hidden;max-height:0;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.fase.open .fase-body{max-height:3000px}
+.fase-content{padding:1.5rem 1.25rem}
+.fase-f1 .fase-header{background:linear-gradient(135deg,#6a0030 0%,#a8003e 100%)}
+.fase-f2 .fase-header{background:linear-gradient(135deg,#00445e 0%,#006a8a 100%)}
+.fase-f3 .fase-header{background:linear-gradient(135deg,#2d5a00 0%,#3f7e10 100%)}
+.fase-f4 .fase-header{background:linear-gradient(135deg,#5a3a00 0%,#8a5800 100%)}
+
+/* Bloques */
+.bloque{margin-bottom:.75rem;border-radius:6px;overflow:hidden}
+.bloque-head{font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.5rem .9rem;font-weight:500}
+.bloque-item{display:flex;gap:.7rem;padding:.6rem .9rem;font-size:.855rem;line-height:1.55;border-top:1px solid rgba(255,255,255,.04)}
+.bloque-item::before{content:'→';opacity:.35;flex-shrink:0;margin-top:.05em}
+.b-pc .bloque-head{background:rgba(0,148,198,.2);color:var(--cyan)}
+.b-pc .bloque-item{background:rgba(0,148,198,.05);color:#ccc}
+.b-warn .bloque-head{background:rgba(226,0,90,.18);color:var(--mag)}
+.b-warn .bloque-item{background:rgba(226,0,90,.05);color:#ccc}
+.b-info .bloque-head{background:rgba(255,255,255,.06);color:#aaa}
+.b-info .bloque-item{background:rgba(255,255,255,.02);color:#bbb}
+.b-entrega .bloque-head{background:rgba(192,139,0,.2);color:var(--gold)}
+.b-entrega .bloque-item{background:rgba(192,139,0,.06);color:#ccc}
+
+/* Sidebox */
+.sidebox{display:flex;border-radius:var(--r);overflow:hidden;margin:1rem 0}
+.sidebox-bar{width:4px;flex-shrink:0}
+.sidebox-body{flex:1;padding:.9rem 1.1rem}
+.sidebox-label{font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;font-weight:500}
+.sidebox-item{font-size:.855rem;line-height:1.6;padding:.12rem 0}
+.sidebox-item::before{content:'→  ';opacity:.5}
+.sb-mag .sidebox-bar{background:var(--mag)}.sb-mag .sidebox-body{background:var(--mag-l)}.sb-mag .sidebox-label{color:var(--mag)}.sb-mag .sidebox-item{color:#4a0020}
+.sb-gold .sidebox-bar{background:var(--gold)}.sb-gold .sidebox-body{background:var(--gold-l)}.sb-gold .sidebox-label{color:var(--gold)}.sb-gold .sidebox-item{color:#4a3600}
+.sb-lime .sidebox-bar{background:var(--lime)}.sb-lime .sidebox-body{background:var(--lime-l)}.sb-lime .sidebox-label{color:var(--lime)}.sb-lime .sidebox-item{color:#1a3a08}
+.sb-cyan .sidebox-bar{background:var(--cyan)}.sb-cyan .sidebox-body{background:var(--cyan-l)}.sb-cyan .sidebox-label{color:var(--cyan)}.sb-cyan .sidebox-item{color:#003344}
+
+.body-text{font-size:.9rem;line-height:1.65;color:#bbb;margin-bottom:1rem}
+.body-text strong{color:var(--white)}
+
+/* Criterio grid */
+.criterio-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1rem 0}
+.criterio-card{background:#1a1a1a;border-radius:8px;padding:1rem;border:1px solid rgba(255,255,255,.06)}
+.criterio-q{font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem}
+.criterio-desc{font-size:.78rem;color:var(--mid);line-height:1.5}
+
+/* Ideas grid */
+.ideas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1rem 0}
+.idea-card{background:#1a1a1a;border-radius:8px;padding:1rem;border:1px solid rgba(255,255,255,.06);border-top:3px solid var(--cyan)}
+.idea-num{font-family:var(--fm);font-size:.62rem;color:var(--cyan);margin-bottom:.4rem;letter-spacing:.1em}
+.idea-title{font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem}
+.idea-desc{font-size:.75rem;color:var(--mid);line-height:1.45}
+
+/* Ficha preview */
+.ficha-preview{background:#141414;border-radius:var(--r);border:1px solid rgba(255,255,255,.07);overflow:hidden;margin:1rem 0}
+.ficha-head{background:#111;padding:.75rem 1.1rem;border-bottom:2px solid var(--mag)}
+.ficha-head-title{font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--mag)}
+.ficha-head-sub{font-size:.72rem;color:var(--mid);margin-top:.15rem}
+.ficha-row{display:flex;gap:.75rem;align-items:baseline;padding:.7rem 1.1rem;border-top:1px solid rgba(255,255,255,.04)}
+.ficha-row:nth-child(odd){background:rgba(255,255,255,.015)}
+.ficha-row.locked{opacity:.3}
+.ficha-label{font-family:var(--fh);font-weight:700;font-size:.75rem;color:#888;min-width:170px;flex-shrink:0}
+.ficha-hint{font-size:.78rem;color:var(--mid);font-style:italic;line-height:1.5}
+
+/* Entregable */
+.entregable-final{background:#111;border-radius:var(--r);border-top:3px solid var(--mag);padding:1.25rem 1.5rem;margin-top:2rem}
+.entregable-final-title{font-family:var(--fh);font-weight:800;font-size:1rem;color:var(--mag);margin-bottom:.75rem}
+.entregable-item{display:flex;gap:.75rem;align-items:baseline;font-size:.875rem;color:#ccc;line-height:1.5;padding:.4rem 0;border-top:1px solid rgba(255,255,255,.05)}
+.entregable-num{font-family:var(--fm);font-size:.7rem;font-weight:500;color:var(--mag);flex-shrink:0;min-width:1.2rem}
+
+/* Coming soon */
+.coming-soon{background:#111;border-radius:var(--r);border:1px solid rgba(255,255,255,.06);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden}
+.coming-soon::before{content:attr(data-label);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--fh);font-size:10rem;font-weight:800;opacity:.03;color:var(--white);pointer-events:none;white-space:nowrap}
+.cs-icon{font-size:2.5rem;margin-bottom:1rem;display:block}
+.cs-title{font-family:var(--fh);font-weight:800;font-size:1.3rem;color:var(--white);margin-bottom:.5rem}
+.cs-sub{font-size:.88rem;color:var(--mid);margin-bottom:2rem;font-style:italic}
+.cs-fases{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.75rem;margin-bottom:1.5rem;text-align:left}
+.cs-fase{background:#1a1a1a;border-radius:8px;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.06)}
+.cs-fase-tag{font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem}
+.cs-fase-title{font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.25rem}
+.cs-fase-desc{font-size:.72rem;color:var(--mid);line-height:1.4}
+.cs-badge{display:inline-block;font-family:var(--fm);font-size:.62rem;letter-spacing:.08em;padding:.3rem .8rem;border-radius:99px;border:1px solid rgba(255,255,255,.12);color:var(--mid)}
+
+/* ── GLOSARIO ── */
+.glosario-search{width:100%;background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:.75rem 1.1rem;color:var(--white);font-family:var(--fb);font-size:.95rem;outline:none;margin-bottom:1.5rem;transition:border-color .2s}
+.glosario-search::placeholder{color:var(--mid)}
+.glosario-search:focus{border-color:var(--cyan)}
+.glosario-cat{margin-bottom:2rem}
+.glosario-cat-title{font-family:var(--fh);font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:2px solid}
+.gc-ia .glosario-cat-title{color:var(--cyan);border-color:var(--cyan)}
+.gc-proyecto .glosario-cat-title{color:var(--mag);border-color:var(--mag)}
+.gc-demoday .glosario-cat-title{color:var(--gold);border-color:var(--gold)}
+.glosario-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem}
+.term-card{background:#111;border-radius:var(--r);padding:1.1rem 1.25rem;border:1px solid rgba(255,255,255,.06);transition:border-color .2s}
+.term-card:hover{border-color:rgba(255,255,255,.15)}
+.term-card.hidden{display:none}
+.term-name{font-family:var(--fh);font-weight:800;font-size:1rem;color:var(--white);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.term-tag{font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;padding:.2rem .5rem;border-radius:99px}
+.tt-ia{background:rgba(0,148,198,.15);color:var(--cyan)}
+.tt-proyecto{background:rgba(226,0,90,.12);color:var(--mag)}
+.tt-demoday{background:rgba(192,139,0,.15);color:var(--gold)}
+.term-def{font-size:.855rem;color:#bbb;line-height:1.6;margin-bottom:.75rem}
+.term-ejemplo{background:#1a1a1a;border-radius:6px;padding:.6rem .85rem;border-left:3px solid}
+.term-ejemplo-label{font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;opacity:.7}
+.term-ejemplo-text{font-size:.8rem;color:#bbb;line-height:1.5;font-style:italic}
+.gc-ia .term-ejemplo{border-color:var(--cyan)}.gc-ia .term-ejemplo-label{color:var(--cyan)}
+.gc-proyecto .term-ejemplo{border-color:var(--mag)}.gc-proyecto .term-ejemplo-label{color:var(--mag)}
+.gc-demoday .term-ejemplo{border-color:var(--gold)}.gc-demoday .term-ejemplo-label{color:var(--gold)}
+.no-results{text-align:center;padding:3rem;color:var(--mid);font-style:italic;display:none}
+
+/* Sec header */
+.sec-header{display:flex;align-items:baseline;gap:.6rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid}
+.sec-header.mag{border-color:var(--mag)}
+.sec-num{font-family:var(--fh);font-size:1.8rem;font-weight:800;line-height:1;color:var(--mag)}
+.sec-title{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--white)}
+.sec-sub{font-size:.78rem;color:var(--mid);font-style:italic;display:block}
+
+/* Two col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.25rem}
+
+/* Footer */
+.site-footer{background:#0a0a0a;border-top:2px solid var(--mag);padding:2rem 1.5rem;text-align:center}
+.footer-inner{max-width:var(--max);margin:0 auto}
+.footer-title{font-family:var(--fh);font-weight:800;font-size:1rem;color:var(--white);margin-bottom:.3rem}
+.footer-sub{font-size:.78rem;color:var(--mid)}
+.footer-mag{color:var(--mag)}
+
+@media(max-width:640px){
+  .landing-title .l1{font-size:3.5rem}.landing-title .l2,.landing-title .l3{font-size:3rem}
+  .porque-grid,.criterio-grid,.ideas-grid,.cs-fases,.two-col{grid-template-columns:1fr}
+  .odiseia-banner{flex-direction:column;gap:.75rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════
+     LANDING
+══════════════════════════════════════════════════════════════ -->
+<section class="landing" id="landing">
+  <div class="landing-accent"></div>
+  <div class="landing-inner">
+
+    <p class="landing-eyebrow">4.º ESO · Tecnología y Digitalización · Curso 2025-26</p>
+
+    <h1 class="landing-title">
+      <span class="l1">AI</span>
+      <span class="l2">CREATIVE</span>
+      <span class="l3">CHALLENGE</span>
+    </h1>
+
+    <div class="landing-rule"></div>
+
+    <p class="landing-tagline">Usad la IA para resolver un problema real que afecta a personas reales.</p>
+    <p class="landing-sub">Durante cuatro retos investigaréis, construiréis y comunicaréis una solución con IA para un colectivo vulnerable. Al final, un jurado externo decidirá quién gana.</p>
+
+    <div class="landing-semanas">
+      <span class="sem-pill sp1"><span class="dot"></span>Reto 1 · Investigar</span>
+      <span class="sem-pill sp2"><span class="dot"></span>Reto 2 · Construir</span>
+      <span class="sem-pill sp3"><span class="dot"></span>Reto 3 · Comunicar</span>
+      <span class="sem-pill sp4"><span class="dot"></span>Reto 4 · Demo Day</span>
+      <span class="sem-pill meta">Equipos de 3-4</span>
+      <span class="sem-pill meta">Jurado externo</span>
+      <span class="sem-pill meta">Un ganador</span>
+    </div>
+
+    <div class="landing-cta">
+      <button class="btn-primary" onclick="goToApp()">Empezar →</button>
+    </div>
+
+  </div>
+  <div class="scroll-hint">Explorar</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════════════════════ -->
+<nav class="nav-wrap" id="app">
+  <div class="nav-inner">
+    <div class="nav-tabs">
+      <button class="tab-btn w0 active" onclick="switchTab(0)">Intro</button>
+      <button class="tab-btn w6" onclick="switchTab(1)">Terminología</button>
+      <button class="tab-btn w1" onclick="switchTab(2)"><span class="tab-dot"></span>Reto 1 · Investigar</button>
+      <button class="tab-btn w2" onclick="switchTab(3)"><span class="tab-dot"></span>Reto 2 · Construir</button>
+      <button class="tab-btn w3" onclick="switchTab(4)"><span class="tab-dot"></span>Reto 3 · Comunicar</button>
+      <button class="tab-btn w4" onclick="switchTab(5)"><span class="tab-dot"></span>Reto 4 · Demo Day</button>
+      <button class="tab-btn w7" onclick="switchTab(6)">Docs</button>
+      <button class="tab-btn w8" onclick="switchTab(7)">Rúbrica</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════════════════════ -->
+<main class="main">
+
+<section class="tab-panel active" id="tab-0">
+
+  <!-- Hero intro -->
+  <div class="intro-hero">
+    <div class="intro-hero-tag">El proyecto</div>
+    <div class="intro-hero-title">IA al servicio de quien más lo necesita</div>
+    <p class="intro-hero-body">La inteligencia artificial no es solo tecnología de entretenimiento. Cada vez más equipos en todo el mundo la usan para resolver problemas reales: detectar enfermedades, apoyar a personas mayores, facilitar la integración de refugiados o ayudar a comunidades afectadas por desastres.<br><br>Durante cuatro retos vais a hacer exactamente eso. <strong>Elegiréis un colectivo vulnerable, investigaréis un problema que sufren de verdad, construiréis una solución con IA y la comunicaréis al mundo.</strong> Al final, un jurado externo evaluará vuestro trabajo.</p>
+  </div>
+
+  <!-- Por qué lo hacemos -->
+  <div class="sec-header mag" style="margin-top:2rem;margin-bottom:1.25rem">
+    <span class="sec-num">01</span>
+    <div><span class="sec-title">¿Por qué lo hacemos?</span></div>
+  </div>
+
+  <div class="porque-grid">
+    <div class="porque-card" data-num="1">
+      <div class="porque-accent" style="background:var(--mag)"></div>
+      <div class="porque-title">La IA ya está cambiando el mundo</div>
+      <div class="porque-desc">No dentro de diez años. Ahora. Médicos, abogados, diseñadores y profesores ya trabajan con IA cada día. Entender cómo funciona y para qué sirve — de verdad, no de oídas — es una ventaja que os va a acompañar toda la vida.</div>
+    </div>
+    <div class="porque-card" data-num="2">
+      <div class="porque-accent" style="background:var(--cyan)"></div>
+      <div class="porque-title">Aprender haciendo, no memorizando</div>
+      <div class="porque-desc">No vais a estudiar teoría sobre IA en un libro. Vais a usar herramientas reales, cometer errores reales, descubrir que la IA falla y aprender a compensarlo. Eso es lo que os quedará.</div>
+    </div>
+    <div class="porque-card" data-num="3">
+      <div class="porque-accent" style="background:var(--lime)"></div>
+      <div class="porque-title">El problema importa de verdad</div>
+      <div class="porque-desc">No es un ejercicio ficticio. Los colectivos que vais a estudiar existen. Los problemas que vais a investigar afectan a personas reales. Una solución bien diseñada, aunque sea un prototipo, tiene valor real.</div>
+    </div>
+    <div class="porque-card" data-num="4">
+      <div class="porque-accent" style="background:var(--gold)"></div>
+      <div class="porque-title">Comunicar es tan importante como construir</div>
+      <div class="porque-desc">Una solución que nadie conoce no sirve de nada. Por eso el proyecto tiene dos fases: construir y comunicar. Aprender a explicar lo que hacéis — a un jurado, a una comunidad, al mundo — es una habilidad tan valiosa como programar.</div>
+    </div>
+  </div>
+
+  <!-- OdiseIA -->
+  <div class="odiseia-banner">
+    <span class="odiseia-icon">🌍</span>
+    <div class="odiseia-body">
+      <div class="odiseia-tag">Inspiración</div>
+      <div class="odiseia-title">OdiseIA4Good — el hackathon real en el que esto se inspira</div>
+      <p class="odiseia-text">OdiseIA4Good es el primer hackathon internacional de IA para colectivos vulnerables. Cada año, equipos de estudiantes y profesionales de todo el mundo compiten con el mismo objetivo que vosotros: usar la IA para mejorar la vida de quien más lo necesita. Este challenge está diseñado con la misma estructura y los mismos cinco colectivos. <strong>Lo que vais a hacer aquí es exactamente lo que hacen los participantes de OdiseIA4Good.</strong></p>
+    </div>
+  </div>
+
+  <!-- Cómo funciona -->
+  <div class="sec-header mag" style="margin-top:2rem;margin-bottom:1.25rem">
+    <span class="sec-num">02</span>
+    <div><span class="sec-title">Cómo funciona</span><span class="sec-sub">Cuatro retos, dos fases, un ganador</span></div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:var(--mag)">1</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-week" style="color:var(--mag)">Reto 1 · Investigar</div>
+        <div class="tl-title">Equipos, colectivo y problema</div>
+        <div class="tl-desc">Forméis el equipo, elegís uno de los cinco colectivos, investigáis el problema con IA y generáis al menos 3 ideas de solución. Al final de la semana, el/la profesor/a valida vuestra propuesta. Sin validación no se puede construir.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:var(--cyan)">2</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-week" style="color:var(--cyan)">Reto 2 · Construir</div>
+        <div class="tl-title">Prototipo funcional</div>
+        <div class="tl-desc">Construís la solución. Tiene que funcionar en vivo — no una presentación, sino algo demostrable. Lleváis un log de trabajo: qué le pedisteis a la IA, qué obtuvisteis, qué cambiasteis.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:var(--lime)">3</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-week" style="color:var(--lime)">Reto 3 · Comunicar</div>
+        <div class="tl-title">Herramienta creativa</div>
+        <div class="tl-desc">Elegís el formato que mejor cuente vuestra historia — vídeo, web, podcast, revista, campaña… — y lo producís con IA. La herramienta de comunicación vale tanto como la solución técnica en la nota final.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:var(--gold)">4</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-week" style="color:var(--gold)">Reto 4 · Demo Day</div>
+        <div class="tl-title">Presentación ante el jurado externo</div>
+        <div class="tl-desc">7 minutos por equipo ante el jurado. Presentáis el problema, hacéis la demo en vivo, mostráis la herramienta creativa y explicáis qué aprendisteis. El jurado delibera y anuncia el ganador.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Los 5 colectivos -->
+  <div class="sec-header mag" style="margin-top:2rem;margin-bottom:1.25rem">
+    <span class="sec-num">03</span>
+    <div><span class="sec-title">Los 5 colectivos</span><span class="sec-sub">Vuestro proyecto debe ayudar a uno de estos</span></div>
+  </div>
+  <div class="colectivos-grid">
+    <div class="colectivo"><span class="col-emoji">👴</span><div class="col-title">Personas mayores</div><div class="col-desc">Soledad, dependencia, barreras de acceso</div></div>
+    <div class="colectivo"><span class="col-emoji">👶</span><div class="col-title">Menores en riesgo</div><div class="col-desc">Violencia, pobreza, exclusión social</div></div>
+    <div class="colectivo"><span class="col-emoji">🌍</span><div class="col-title">Migrantes y refugiados</div><div class="col-desc">Integración, derechos, idioma</div></div>
+    <div class="colectivo"><span class="col-emoji">♿</span><div class="col-title">Personas con discapacidad</div><div class="col-desc">Accesibilidad y participación</div></div>
+    <div class="colectivo"><span class="col-emoji">🌱</span><div class="col-title">Afectados por desastres</div><div class="col-desc">Hogares, seguridad, medios de vida</div></div>
+  </div>
+
+  <!-- Herramientas -->
+  <div class="sec-header mag" style="margin-top:2rem;margin-bottom:1.25rem">
+    <span class="sec-num">04</span>
+    <div><span class="sec-title">Herramientas de IA</span><span class="sec-sub">Todo en el navegador — sin instalar nada</span></div>
+  </div>
+  <table class="tools-table">
+    <thead><tr><th>Herramienta</th><th>Tipo</th><th>Para qué sirve</th><th>Acceso</th></tr></thead>
+    <tbody>
+      <tr><td>Claude / ChatGPT</td><td>Lenguaje</td><td>Texto, guiones, análisis, chatbots</td><td class="tool-access">claude.ai · chat.openai.com</td></tr>
+      <tr><td>ElevenLabs</td><td>Voz sintética</td><td>Convierte texto en voz realista</td><td class="tool-access">elevenlabs.io — 10k chars/mes</td></tr>
+      <tr><td>Canva Magic</td><td>Imagen+diseño</td><td>Carteles e infografías con IA</td><td class="tool-access">canva.com — gratuito</td></tr>
+      <tr><td>CapCut AI</td><td>Vídeo</td><td>Edición automática y subtítulos IA</td><td class="tool-access">capcut.com — navegador</td></tr>
+      <tr><td>Runway</td><td>Vídeo generativo</td><td>Genera clips desde texto o imagen</td><td class="tool-access">runwayml.com — plan free</td></tr>
+      <tr><td>Gamma</td><td>Presentaciones</td><td>Webs y presentaciones desde un esquema</td><td class="tool-access">gamma.app — gratuito</td></tr>
+      <tr><td>LearningML</td><td>ML sin código</td><td>Clasificadores de IA sin programar</td><td class="tool-access">learningml.es — sin registro</td></tr>
+      <tr><td>NotebookLM</td><td>Análisis docs</td><td>Resúmenes y podcasts de documentos</td><td class="tool-access">notebooklm.google.com</td></tr>
+    </tbody>
+  </table>
+
+</section>
+
+<section class="tab-panel" id="tab-1">
+
+  <div class="sec-header mag" style="margin-bottom:1.5rem">
+    <span class="sec-num" style="color:var(--cyan)">T</span>
+    <div><span class="sec-title">Terminología</span><span class="sec-sub">Definiciones y ejemplos de uso en el proyecto</span></div>
+  </div>
+
+  <input class="glosario-search" type="text" placeholder="Buscar término…" oninput="filtrarTerminos(this.value)" id="glosario-input">
+
+  <div class="no-results" id="no-results">No hay términos que coincidan con esa búsqueda.</div>
+
+  <!-- CATEGORÍA: IA -->
+  <div class="glosario-cat gc-ia" id="cat-ia">
+    <div class="glosario-cat-title">🤖 Términos de inteligencia artificial</div>
+    <div class="glosario-grid">
+
+      <div class="term-card" data-term="prompt instruccion peticion">
+        <div class="term-name">Prompt <span class="term-tag tt-ia">IA</span></div>
+        <div class="term-def">El texto que le escribís a una herramienta de IA para pedirle algo. Es la instrucción. Cuanto más claro y detallado sea el prompt, mejor será la respuesta.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Le hicimos el prompt: «Eres un asistente para personas mayores con dificultades auditivas. Responde con frases cortas y sin tecnicismos.»"</div></div>
+      </div>
+
+      <div class="term-card" data-term="alucinacion error inventar datos">
+        <div class="term-name">Alucinación <span class="term-tag tt-ia">IA</span></div>
+        <div class="term-def">Cuando una IA inventa información que no existe o que es incorrecta, pero la presenta como si fuera verdad con total confianza. Es uno de los límites más importantes de la IA actual.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"La IA nos dijo que había 2 millones de personas mayores en Madrid viviendo solas. Verificamos el dato y era incorrecto — anotadlo en el log."</div></div>
+      </div>
+
+      <div class="term-card" data-term="modelo lenguaje gpt llm red neuronal">
+        <div class="term-name">Modelo de IA <span class="term-tag tt-ia">IA</span></div>
+        <div class="term-def">El sistema entrenado que hay detrás de una herramienta de IA. Claude, GPT-4 y Gemini son modelos distintos. Cada uno tiene capacidades diferentes y puede dar resultados distintos al mismo prompt.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Probamos el mismo prompt en Claude y en ChatGPT — el modelo de ChatGPT dio una respuesta más larga, el de Claude más concisa."</div></div>
+      </div>
+
+      <div class="term-card" data-term="entrenamiento datos aprendizaje maquina">
+        <div class="term-name">Entrenamiento <span class="term-tag tt-ia">IA</span></div>
+        <div class="term-def">El proceso por el que una IA aprende a partir de grandes cantidades de datos. Un modelo de clasificación de imágenes aprende viendo miles de ejemplos etiquetados. LearningML os permite entrenar vuestros propios modelos.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Entrenamos un clasificador en LearningML con 40 fotos de medicamentos mal almacenados y 40 de medicamentos correctos."</div></div>
+      </div>
+
+      <div class="term-card" data-term="clasificador reconocimiento categorias">
+        <div class="term-name">Clasificador <span class="term-tag tt-ia">IA</span></div>
+        <div class="term-def">Un tipo de modelo de IA que aprende a distinguir entre categorías. Por ejemplo: ¿esto es spam o no? ¿Esta imagen muestra una caída o no? Es lo que podéis crear con LearningML sin programar.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Nuestro clasificador detecta si un niño está solo en un espacio no supervisado usando la cámara del móvil."</div></div>
+      </div>
+
+      <div class="term-card" data-term="voz sintetica tts texto audio elevenLabs">
+        <div class="term-name">Voz sintética <span class="term-tag tt-ia">IA</span></div>
+        <div class="term-def">Audio generado por IA a partir de texto. No es una grabación real, sino una voz creada artificialmente. ElevenLabs puede generar voces que suenan muy naturales en varios idiomas.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Usamos voz sintética para que nuestro asistente lea las instrucciones en voz alta a personas mayores con problemas de visión."</div></div>
+      </div>
+
+      <div class="term-card" data-term="sesgo bias datos discriminacion">
+        <div class="term-name">Sesgo <span class="term-tag tt-ia">IA</span></div>
+        <div class="term-def">Cuando una IA aprende patrones incorrectos o injustos porque sus datos de entrenamiento tenían esos problemas. Un sistema de IA entrenado solo con datos de una cultura puede fallar con otras.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Nuestro clasificador fallaba más con personas mayores de piel oscura porque casi todas las fotos de entrenamiento eran de personas blancas."</div></div>
+      </div>
+
+      <div class="term-card" data-term="generativa imagen texto creacion canva runway">
+        <div class="term-name">IA generativa <span class="term-tag tt-ia">IA</span></div>
+        <div class="term-def">Tipo de IA que crea contenido nuevo: texto, imágenes, audio, vídeo. Claude, Canva Magic y ElevenLabs son ejemplos. Se diferencia de la IA clasificadora, que solo analiza.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Usamos IA generativa para crear el guión del vídeo, las imágenes del cartel y la voz en off — todo en la reto 3."</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CATEGORÍA: PROYECTO -->
+  <div class="glosario-cat gc-proyecto" id="cat-proyecto">
+    <div class="glosario-cat-title">📋 Términos del proyecto</div>
+    <div class="glosario-grid">
+
+      <div class="term-card" data-term="log registro trabajo iteracion prompt resultado">
+        <div class="term-name">Log de trabajo <span class="term-tag tt-proyecto">Proyecto</span></div>
+        <div class="term-def">Documento donde anotáis cada uso relevante de la IA: el prompt exacto que usasteis, qué obtuvisteis y qué cambiasteis. Es el registro de cómo evolucionó vuestro proyecto.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Entrada #5: Prompt: «Resume este artículo en 3 puntos para alguien de 70 años». Resultado: demasiado técnico. Cambio: añadimos «sin palabras difíciles»."</div></div>
+      </div>
+
+      <div class="term-card" data-term="prototipo version funcionamiento demo">
+        <div class="term-name">Prototipo <span class="term-tag tt-proyecto">Proyecto</span></div>
+        <div class="term-def">Una primera versión funcional de vuestra solución. No tiene que ser perfecta ni bonita — tiene que demostrar que la idea funciona. En la reto 2 construís el prototipo.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Nuestro prototipo es un chatbot básico en Claude que responde preguntas sobre medicamentos. No tiene interfaz, pero funciona."</div></div>
+      </div>
+
+      <div class="term-card" data-term="iteracion mejorar versiones ciclo">
+        <div class="term-name">Iteración <span class="term-tag tt-proyecto">Proyecto</span></div>
+        <div class="term-def">Cada vuelta del ciclo de mejora: construís algo, lo probáis, veis qué falla, lo mejoráis y repetís. El desarrollo con IA funciona así — pocas veces sale bien a la primera.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"En la tercera iteración del prompt conseguimos que la IA respondiese siempre en menos de 50 palabras."</div></div>
+      </div>
+
+      <div class="term-card" data-term="colectivo vulnerable personas grupo social">
+        <div class="term-name">Colectivo vulnerable <span class="term-tag tt-proyecto">Proyecto</span></div>
+        <div class="term-def">Grupo de personas que, por su situación, tienen más dificultades para acceder a recursos, derechos o servicios básicos. En este proyecto trabajáis con uno de los cinco colectivos de OdiseIA4Good.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Elegimos el colectivo de personas con discapacidad visual porque investigando vimos que tienen muy poco acceso a información médica en formato accesible."</div></div>
+      </div>
+
+      <div class="term-card" data-term="ficha proyecto documento datos">
+        <div class="term-name">Ficha del Proyecto <span class="term-tag tt-proyecto">Proyecto</span></div>
+        <div class="term-def">El documento central del challenge donde recogéis el nombre del proyecto, el equipo, el colectivo, el problema, la solución y el plan. Se rellena progresivamente a lo largo de los retos.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"La ficha tiene que estar con los tres primeros campos rellenos antes de la validación. Sin validación no empezáis la reto 2."</div></div>
+      </div>
+
+      <div class="term-card" data-term="validacion aprobacion profesor idea">
+        <div class="term-name">Validación <span class="term-tag tt-proyecto">Proyecto</span></div>
+        <div class="term-def">El momento en que el/la profesor/a revisa vuestra ficha y aprueba (o pide que mejoréis) el colectivo, el problema y la idea. Sin validación no se puede pasar a la reto 2.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"En la validación el profesor nos dijo que nuestro problema era demasiado vago — «ayudar a inmigrantes» no es suficiente. Lo concretamos."</div></div>
+      </div>
+
+      <div class="term-card" data-term="sprint semana plan objetivos hitos">
+        <div class="term-name">Sprint <span class="term-tag tt-proyecto">Proyecto</span></div>
+        <div class="term-def">Período corto de trabajo con un objetivo concreto al final. En este proyecto, cada reto es un sprint. Al acabar la reto 1 escribís qué tendréis al final de cada sprint siguiente.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Plan de sprint: S2 → prototipo funcional con al menos 3 respuestas correctas. S3 → vídeo de 2 min con voz sintética. S4 → pitch ensayado x3."</div></div>
+      </div>
+
+      <div class="term-card" data-term="hackathon competicion proyectos equipos">
+        <div class="term-name">Hackathon <span class="term-tag tt-proyecto">Proyecto</span></div>
+        <div class="term-def">Competición en la que equipos trabajan en un tiempo limitado para crear soluciones a un problema. Este challenge está inspirado en OdiseIA4Good, el primer hackathon internacional de IA para colectivos vulnerables.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"GaÍA nació en el hackathon OdiseIA4Good 2025. Hoy es un producto real. Vuestro proyecto sigue la misma estructura."</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CATEGORÍA: DEMO DAY -->
+  <div class="glosario-cat gc-demoday" id="cat-demoday">
+    <div class="glosario-cat-title">🎤 Términos del Demo Day</div>
+    <div class="glosario-grid">
+
+      <div class="term-card" data-term="pitch presentacion jurado explicar convencer">
+        <div class="term-name">Pitch <span class="term-tag tt-demoday">Demo Day</span></div>
+        <div class="term-def">Presentación corta y estructurada ante el jurado. En 7 minutos tenéis que explicar el problema, demostrar la solución, mostrar la herramienta de comunicación y contar qué aprendisteis.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Estructura del pitch: 1 min problema · 2 min demo · 2 min comunicación · 1 min aprendizajes · 1 min preguntas."</div></div>
+      </div>
+
+      <div class="term-card" data-term="demo demostracion vivo funcionar enseñar">
+        <div class="term-name">Demo <span class="term-tag tt-demoday">Demo Day</span></div>
+        <div class="term-def">La demostración en vivo de que vuestra solución funciona. No es un vídeo ni una captura — es mostrar la herramienta funcionando en tiempo real ante el jurado.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"En la demo abrimos el chatbot en vivo y preguntamos lo mismo que preguntaría una persona mayor. El jurado vio la respuesta en tiempo real."</div></div>
+      </div>
+
+      <div class="term-card" data-term="jurado evaluador nota criterio externo">
+        <div class="term-name">Jurado externo <span class="term-tag tt-demoday">Demo Day</span></div>
+        <div class="term-def">Personas que no son vuestro profesor/a y que evalúan vuestro proyecto en el Demo Day. Pueden ser profesores de otros departamentos, alumnos de otro curso o personas de fuera del centro.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"El jurado puede preguntarle a cualquier miembro del equipo, no solo al que presenta. Preparaos todos."</div></div>
+      </div>
+
+      <div class="term-card" data-term="reflexion critica analisis aprendizaje errores">
+        <div class="term-name">Reflexión crítica <span class="term-tag tt-demoday">Demo Day</span></div>
+        <div class="term-def">Análisis honesto de cómo fue el proceso: qué funcionó, qué falló, qué cambiaríais. No es un resumen de lo que hicisteis — es una evaluación de cómo lo hicisteis y qué aprendisteis.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Un pitch honesto sobre los límites del proyecto vale más que uno que vende lo que no existe. El jurado lo valora."</div></div>
+      </div>
+
+      <div class="term-card" data-term="tokenomia token blockchain criptomoneda distribucion">
+        <div class="term-name">Token / Blockchain <span class="term-tag tt-demoday">Demo Day</span></div>
+        <div class="term-def">Tecnología de registro distribuido donde las transacciones se guardan en bloques encadenados. Un token es una unidad dentro de esa cadena. Puede aparecer si algún equipo lo usa en su solución.</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"Si vuestra solución implica registrar donaciones o servicios de forma transparente, podríais valorar usar un token en una red existente."</div></div>
+      </div>
+
+      <div class="term-card" data-term="impacto social medible resultado cambio">
+        <div class="term-name">Impacto social <span class="term-tag tt-demoday">Demo Day</span></div>
+        <div class="term-def">El cambio real que vuestra solución produce en la vida de las personas del colectivo. El jurado evalúa si el impacto es concreto y medible, no solo una intención vaga de "ayudar".</div>
+        <div class="term-ejemplo"><div class="term-ejemplo-label">En el proyecto</div><div class="term-ejemplo-text">"«Ayudar a personas mayores» no es impacto medible. «Reducir el tiempo que tarda una persona mayor en encontrar información sobre su medicación de 20 minutos a 2» sí lo es."</div></div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="tab-panel" id="tab-2">
+  <div class="week-banner wb-mag" data-label="S1">
+    <div class="week-num">Reto 1 · ~3 sesiones</div>
+    <div class="week-title">Investigar</div>
+    <div class="week-sub">Equipos, colectivo, problema, ideas y validación</div>
+  </div>
+  <div class="semana-progress">
+    <span class="sp-label">Retos</span>
+    <span class="sp-dot active"></span><span class="sp-dot"></span><span class="sp-dot"></span><span class="sp-dot"></span>
+  </div>
+  <div class="aviso-p20">
+    <span class="aviso-icon">✅</span>
+    <div class="aviso-text"><strong>Ya conocéis las herramientas.</strong> En la P20 explorasteis cómo funciona la IA, probasteis herramientas y aprendisteis qué es la alucinación. Aquí no volvemos sobre eso. Ahora usáis esas mismas herramientas con un objetivo real: resolver un problema que afecta a personas reales.</div>
+  </div>
+
+  <!-- FASE 1 -->
+  <div class="fase fase-f1 open">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 1</div><div class="fase-title">Formación de equipos</div><div class="fase-subtitle">Antes de empezar cualquier otra cosa</div></div>
+      <span class="fase-tiempo">~15 min</span><span class="fase-chevron">▼</span><span class="fase-num">1</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <p class="body-text">Lo primero es saber con quién trabajáis. Hasta que los equipos no estén aprobados, no empezáis nada más.</p>
+      <div class="bloque b-info">
+        <div class="bloque-head">📋 Cómo se forman los equipos</div>
+        <div class="bloque-item">Los equipos son de 3 o 4 personas. Vosotros proponéis el equipo, el/la profesor/a lo aprueba.</div>
+        <div class="bloque-item">Una vez aprobados no cambian. Pensadlo bien antes de proponer.</div>
+        <div class="bloque-item">Elegid un nombre de equipo. Lo usaréis en todas las entregas del proyecto.</div>
+      </div>
+      <div class="bloque b-warn">
+        <div class="bloque-head">⚡ Atención</div>
+        <div class="bloque-item">No empezáis la Fase 2 hasta que el/la profesor/a haya aprobado vuestro equipo.</div>
+      </div>
+      <div class="bloque b-info" style="margin-top:.5rem">
+        <div class="bloque-head">🔧 Herramientas que necesitáis este reto — registraos antes de empezar</div>
+        <div class="bloque-item">
+          <div style="width:100%">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.3rem">
+              <div style="background:#1a1a1a;border-radius:6px;padding:.75rem 1rem;border-top:2px solid var(--cyan)">
+                <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.2rem">Claude</div>
+                <div style="font-size:.75rem;color:var(--mid);margin-bottom:.4rem">Para investigar el problema, explorar ideas y desarrollarlas</div>
+                <a href="https://claude.ai" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--cyan);text-decoration:none;letter-spacing:.06em">claude.ai →</a>
+                <span style="font-size:.7rem;color:var(--mid);margin-left:.5rem">Gratuito con cuenta Google o email</span>
+              </div>
+              <div style="background:#1a1a1a;border-radius:6px;padding:.75rem 1rem;border-top:2px solid var(--cyan)">
+                <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.2rem">ChatGPT</div>
+                <div style="font-size:.75rem;color:var(--mid);margin-bottom:.4rem">Alternativa a Claude — mismos usos, útil para comparar resultados</div>
+                <a href="https://chat.openai.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--cyan);text-decoration:none;letter-spacing:.06em">chat.openai.com →</a>
+                <span style="font-size:.7rem;color:var(--mid);margin-left:.5rem">Gratuito con cuenta Google o email</span>
+              </div>
+              <div style="background:#1a1a1a;border-radius:6px;padding:.75rem 1rem;border-top:2px solid var(--mid)">
+                <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.2rem">NotebookLM</div>
+                <div style="font-size:.75rem;color:var(--mid);margin-bottom:.4rem">Analiza noticias y docs — útil para investigar con fuentes reales</div>
+                <a href="https://notebooklm.google.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--cyan);text-decoration:none;letter-spacing:.06em">notebooklm.google.com →</a>
+                <span style="font-size:.7rem;color:var(--mid);margin-left:.5rem">Gratuito con cuenta Google</span>
+              </div>
+              <div style="background:#1a1a1a;border-radius:6px;padding:.75rem 1rem;border-top:2px solid var(--mid)">
+                <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.2rem">LearningML</div>
+                <div style="font-size:.75rem;color:var(--mid);margin-bottom:.4rem">Para ideas de solución con clasificación o reconocimiento — sin programar</div>
+                <a href="https://learningml.es" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--cyan);text-decoration:none;letter-spacing:.06em">learningml.es →</a>
+                <span style="font-size:.7rem;color:var(--mid);margin-left:.5rem">Sin registro</span>
+              </div>
+            </div>
+            <div style="margin-top:.75rem;font-size:.78rem;color:var(--mid);font-style:italic">Las herramientas para construir y comunicar (ElevenLabs, Canva, CapCut, Runway…) las veréis en la reto 2. Este reto solo necesitáis las de texto.</div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="fase fase-f2">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 2</div><div class="fase-title">Elegir colectivo y problema</div><div class="fase-subtitle">El paso más difícil y el más importante de toda la semana</div></div>
+      <span class="fase-tiempo">~60 min</span><span class="fase-chevron">▼</span><span class="fase-num">2</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <p class="body-text">El proyecto tiene que ayudar a <strong>uno de los 5 colectivos de OdiseIA4Good</strong>. No podéis inventaros uno. Pero el colectivo solo no es suficiente: necesitáis identificar un <strong>problema concreto y real</strong> que ese colectivo sufra.</p>
+      <p class="body-text">Dedicad tiempo a esto. No tengáis prisa por pasar a la siguiente fase. Un problema mal elegido aquí arruina todo lo que viene después.</p>
+      <div class="colectivos-grid">
+        <div class="colectivo"><span class="col-emoji">👴</span><div class="col-title">Personas mayores</div><div class="col-desc">Soledad, dependencia, barreras de acceso a servicios</div></div>
+        <div class="colectivo"><span class="col-emoji">👶</span><div class="col-title">Menores en riesgo</div><div class="col-desc">Violencia, pobreza, exclusión social</div></div>
+        <div class="colectivo"><span class="col-emoji">🌍</span><div class="col-title">Migrantes y refugiados</div><div class="col-desc">Integración, derechos, barreras idiomáticas</div></div>
+        <div class="colectivo"><span class="col-emoji">♿</span><div class="col-title">Personas con discapacidad</div><div class="col-desc">Accesibilidad, autonomía, participación</div></div>
+        <div class="colectivo"><span class="col-emoji">🌱</span><div class="col-title">Afectados por desastres</div><div class="col-desc">Hogares, seguridad, medios de vida perdidos</div></div>
+      </div>
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 Investigad el problema con IA</div>
+        <div class="bloque-item">Usad Claude o ChatGPT para entender mejor el colectivo: ¿qué problemas concretos sufren? ¿Qué datos existen? ¿Qué soluciones hay ya?</div>
+        <div class="bloque-item">Buscad también fuentes reales — noticias, organizaciones, proyectos. Verificad los datos que os dé la IA.</div>
+        <div class="bloque-item">Anotad todo lo que encontréis. Este material os servirá para justificar la elección ante el jurado.</div>
+      </div>
+      <p class="body-text" style="margin-top:1.25rem">Para que el problema sea bueno tiene que superar estas cuatro preguntas:</p>
+      <div class="criterio-grid">
+        <div class="criterio-card"><div class="criterio-q">¿Es real?</div><div class="criterio-desc">¿Hay personas que lo sufren hoy, no en un escenario hipotético?</div></div>
+        <div class="criterio-card"><div class="criterio-q">¿Es concreto?</div><div class="criterio-desc">"La pobreza" no es un problema. "Los menores en riesgo no tienen acceso a apoyo escolar fuera del horario lectivo" sí lo es.</div></div>
+        <div class="criterio-card"><div class="criterio-q">¿Aporta algo la IA?</div><div class="criterio-desc">Si la solución podría existir igual sin IA, repensadlo. La IA tiene que ser esencial, no decorativa.</div></div>
+        <div class="criterio-card"><div class="criterio-q">¿Es abordable?</div><div class="criterio-desc">No tenéis que resolver el problema entero. Tenéis que demostrar que vuestra solución funciona en dos semanas.</div></div>
+      </div>
+      <div class="sidebox sb-gold">
+        <div class="sidebox-bar"></div>
+        <div class="sidebox-body">
+          <div class="sidebox-label">💡 Cómo empezó GaIA</div>
+          <div class="sidebox-item">Colectivo: personas mayores.</div>
+          <div class="sidebox-item">Problema concreto: la soledad no deseada en personas que viven solas y tienen dificultades para relacionarse.</div>
+          <div class="sidebox-item">Hoy GaIA es un producto real con app y hardware. Empezó exactamente aquí, con esta misma pregunta.</div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="fase fase-f3">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 3</div><div class="fase-title">Generar ideas de solución</div><div class="fase-subtitle">Mínimo 3 ideas distintas antes de elegir una</div></div>
+      <span class="fase-tiempo">~40 min</span><span class="fase-chevron">▼</span><span class="fase-num">3</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <p class="body-text">Con el problema claro, pensad en cómo la IA podría ayudar a resolverlo. <strong>No os quedéis con la primera idea.</strong> Tenéis que generar al menos 3 ideas distintas antes de decidir cuál desarrolláis.</p>
+      <div class="ideas-grid">
+        <div class="idea-card"><div class="idea-num">IDEA 01</div><div class="idea-title">La más obvia</div><div class="idea-desc">La primera que se os ocurra. Describidla en 2-3 frases: qué hace y cómo usa la IA.</div></div>
+        <div class="idea-card"><div class="idea-num">IDEA 02</div><div class="idea-title">Un enfoque diferente</div><div class="idea-desc">No es una variante de la idea 1. Es atacar el mismo problema desde un ángulo completamente distinto.</div></div>
+        <div class="idea-card"><div class="idea-num">IDEA 03</div><div class="idea-title">La más arriesgada</div><div class="idea-desc">La que os da más miedo técnicamente. A veces la más difícil es la que mejor funciona.</div></div>
+      </div>
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 Usad la IA para explorar cada idea</div>
+        <div class="bloque-item">Para cada idea, pedid a Claude o ChatGPT que os ayude a desarrollarla: ¿qué tecnología necesitaría? ¿Qué herramientas podríais usar? ¿Qué podría fallar?</div>
+        <div class="bloque-item">Buscad si existe algo parecido. Si existe, ¿en qué sería diferente el vuestro?</div>
+        <div class="bloque-item">Anotad las 3 ideas aunque solo vayáis a desarrollar una — se entregan todas al final de la semana.</div>
+      </div>
+      <div class="bloque b-info">
+        <div class="bloque-head">🧠 Cómo elegir entre las 3</div>
+        <div class="bloque-item">¿Cuál resuelve mejor el problema del colectivo — no cuál mola más técnicamente?</div>
+        <div class="bloque-item">¿Cuál podéis demostrar que funciona en dos semanas con las herramientas que ya conocéis?</div>
+        <div class="bloque-item">¿En cuál la IA es más esencial — no más decorativa?</div>
+        <div class="bloque-item">Si no tenéis claro cuál elegir, consultadlo con el/la profesor/a antes de la validación.</div>
+      </div>
+      <div class="sidebox sb-mag">
+        <div class="sidebox-bar"></div>
+        <div class="sidebox-body">
+          <div class="sidebox-label">⚡ Lo más importante de esta fase</div>
+          <div class="sidebox-item">Generar 3 ideas no es un trámite. Es el trabajo real de este reto.</div>
+          <div class="sidebox-item">Una idea elegida demasiado rápido, sin haberla comparado con otras, casi siempre es peor que una pensada con calma.</div>
+          <div class="sidebox-item">No pasa nada si las tres son imperfectas al principio. Pasa si no generáis ninguna alternativa.</div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- FASE 4 -->
+  <div class="fase fase-f4">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 4</div><div class="fase-title">Ficha del Proyecto y validación</div><div class="fase-subtitle">Sin validación no empieza la reto 2</div></div>
+      <span class="fase-tiempo">~30 min</span><span class="fase-chevron">▼</span><span class="fase-num">4</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <p class="body-text">Cuando tengáis el colectivo, el problema y la idea elegida, rellenad los tres primeros campos de la Ficha del Proyecto y avisad al/la profesor/a. Pasará por vuestro equipo, revisará la ficha y os dará feedback en persona.</p>
+      <div class="ficha-preview">
+        <div class="ficha-head"><div class="ficha-head-title">✦ Ficha del Proyecto — campos de este reto</div><div class="ficha-head-sub">Rellenad estos tres antes de pedir la validación</div></div>
+        <div class="ficha-row"><div class="ficha-label">🏷 Nombre del proyecto</div><div class="ficha-hint">Algo que suene como algo que queréis que el mundo conozca. Puede cambiar todavía.</div></div>
+        <div class="ficha-row"><div class="ficha-label">❗ Colectivo y problema</div><div class="ficha-hint">¿A cuál de los 5 os dirigís? ¿Qué problema concreto sufren? ¿Por qué importa ahora?</div></div>
+        <div class="ficha-row"><div class="ficha-label">🤖 Solución propuesta</div><div class="ficha-hint">¿Qué idea elegisteis de las 3? ¿Qué hace? ¿Qué aporta la IA que sin ella sería imposible?</div></div>
+        <div class="ficha-row locked"><div class="ficha-label">🎨 Herramienta comunicación</div><div class="ficha-hint">Se decide en la reto 3.</div></div>
+        <div class="ficha-row locked"><div class="ficha-label">🗓 Plan de sprint</div><div class="ficha-hint">Se completa después de la validación.</div></div>
+      </div>
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 Después de la validación</div>
+        <div class="bloque-item">Incorporad el feedback a la ficha. Si el/la profesor/a os pide que repenséis algo, hacedlo antes de continuar.</div>
+        <div class="bloque-item">Cread cuentas en las herramientas de IA que vais a usar en la reto 2.</div>
+        <div class="bloque-item">Escribid el plan de sprint: ¿qué tendréis al final de cada reto? Sed concretos.</div>
+      </div>
+      <div class="bloque b-warn">
+        <div class="bloque-head">⚡ Último momento para cambiar</div>
+        <div class="bloque-item">Una vez validada la ficha y empezada la reto 2, el colectivo y el problema no se pueden cambiar.</div>
+        <div class="bloque-item">Si tenéis dudas, resuélvedlas ahora. Es para eso la validación.</div>
+      </div>
+      <div class="sidebox sb-lime">
+        <div class="sidebox-bar"></div>
+        <div class="sidebox-body">
+          <div class="sidebox-label">✅ Al terminar este reto tendréis</div>
+          <div class="sidebox-item">Equipo aprobado con nombre de equipo.</div>
+          <div class="sidebox-item">Las 3 ideas de solución documentadas.</div>
+          <div class="sidebox-item">Ficha con los tres primeros campos validada.</div>
+          <div class="sidebox-item">Cuentas creadas en las herramientas de la reto 2.</div>
+          <div class="sidebox-item">Plan de sprint escrito.</div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="entregable-final">
+    <div class="entregable-final-title">📥 Entrega del Reto 1</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>La entrega de este reto es la <strong style="color:var(--white)">Ficha del Proyecto</strong>, que podéis descargar en la pestaña <button onclick="switchTab(6)" style="background:none;border:none;color:var(--mag);font-family:var(--fb);font-size:.875rem;font-weight:700;cursor:pointer;padding:0;text-decoration:underline">Docs →</button>. Es un documento Word que recoge todo el trabajo de investigación de este reto.</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>La ficha incluye: el nombre del proyecto, el colectivo y el problema elegidos, la solución propuesta con IA, las 3 ideas que generasteis antes de decidir, el feedback de validación del/la profesor/a y el plan de sprint para los retos siguientes.</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>Todos estos campos tienen que estar rellenos y la validación tiene que estar firmada antes de entregar. Sin validación, la entrega no se acepta.</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>Guardad el archivo con el nombre <strong style="color:var(--white)">R1_NombreDelEquipo</strong> y entregadlo por Teams. Una sola entrega por equipo.</div>
+  </div>
+</section>
+
+<section class="tab-panel" id="tab-3">
+  <div class="week-banner wb-cyan" data-label="S2">
+    <div class="week-num">Reto 2 · ~3 sesiones</div>
+    <div class="week-title">Construir</div>
+    <div class="week-sub">De la idea al prototipo funcional</div>
+  </div>
+  <div class="semana-progress">
+    <span class="sp-label">Retos</span>
+    <span class="sp-dot c"></span><span class="sp-dot active"></span><span class="sp-dot"></span><span class="sp-dot"></span>
+  </div>
+
+  <div class="aviso-p20">
+    <span class="aviso-icon">✅</span>
+    <div class="aviso-text"><strong>Tenéis el problema y la idea validados.</strong> Este reto es de ejecución. Construid, probad, fallad, mejorad. El objetivo al acabar es tener algo que funcione y podáis demostrar en vivo.</div>
+  </div>
+
+  <!-- FASE 1 -->
+  <div class="fase fase-f1 open">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 1</div><div class="fase-title">Primer prototipo</div><div class="fase-subtitle">Que algo funcione, aunque sea básico</div></div>
+      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">1</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 En el ordenador</div>
+        <div class="bloque-item">Repartid tareas y empezad a construir. El objetivo de esta sesión no es tener algo perfecto — es tener algo que funcione, aunque sea mínimo.</div>
+        <div class="bloque-item">Si algo no funciona después de varios intentos, anotad el problema y cambiad de enfoque. No perdáis la sesión entera en un bloqueo.</div>
+        <div class="bloque-item">Al terminar, abrid el documento compartido y anotad lo que hicisteis.</div>
+      </div>
+      <div class="bloque b-entrega">
+        <div class="bloque-head">🏁 Ficha — qué anotáis tras esta sesión</div>
+        <div class="bloque-item">Qué queríais conseguir y qué conseguisteis realmente.</div>
+        <div class="bloque-item">2 capturas mínimo del proceso — una de algo que funcionó y una de algo que falló o sorprendió. Explicad cada captura en 3-4 líneas propias.</div>
+        <div class="bloque-item">Los prompts exactos más importantes que usasteis con ChatGPT.</div>
+        <div class="bloque-item">Estado del prototipo al acabar: ¿qué funciona? ¿qué falta?</div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="fase fase-f2">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 2</div><div class="fase-title">Mejorar y ajustar</div><div class="fase-subtitle">Resolver lo que no funcionó e iterar</div></div>
+      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">2</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 En el ordenador</div>
+        <div class="bloque-item">Resolved los problemas de la Fase 1. Añadid funcionalidad solo si lo básico ya funciona bien.</div>
+        <div class="bloque-item">Pensad en la demo: ¿qué tiene que funcionar sí o sí ante el jurado? Priorizad eso sobre cualquier otra cosa.</div>
+        <div class="bloque-item">Si usáis ChatGPT para generar código o respuestas, probad siempre el resultado antes de darlo por bueno.</div>
+      </div>
+      <div class="bloque b-entrega">
+        <div class="bloque-head">🏁 Ficha — qué anotáis tras esta sesión</div>
+        <div class="bloque-item">Qué mejorasteis respecto a la Fase 1 y por qué tomasteis esas decisiones.</div>
+        <div class="bloque-item">2 capturas mínimo. Al menos una tiene que mostrar un error, una alucinación o un resultado inesperado de la IA.</div>
+        <div class="bloque-item">¿Está el prototipo listo para la Fase 3 o aún falta algo crítico?</div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="fase fase-f3">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 3</div><div class="fase-title">Versión final y demo</div><div class="fase-subtitle">Cerrar, pulir y preparar la presentación</div></div>
+      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">3</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 En el ordenador</div>
+        <div class="bloque-item">Pulid el prototipo y quitad lo que no funciona. Mejor una cosa que funciona bien que tres que funcionan a medias.</div>
+        <div class="bloque-item">Ensayad la demo completa desde cero: abrid el prototipo y seguid el flujo exacto que haréis ante el jurado. Cronometrad.</div>
+        <div class="bloque-item">Probadlo en el ordenador del aula, no solo en el vuestro. Siempre hay diferencias.</div>
+      </div>
+      <div class="bloque b-entrega">
+        <div class="bloque-head">🏁 Ficha — qué anotáis tras esta sesión</div>
+        <div class="bloque-item">Qué decisiones tomasteis para cerrar el prototipo y por qué.</div>
+        <div class="bloque-item">Una captura del estado final — el prototipo tal como lo vais a mostrar.</div>
+        <div class="bloque-item">Una frase honesta: ¿qué no llegasteis a hacer y por qué?</div>
+      </div>
+      <div class="bloque b-warn">
+        <div class="bloque-head">⚡ A partir de aquí</div>
+        <div class="bloque-item">El prototipo queda cerrado. En el Reto 3 no se toca — toda la energía va a comunicarlo.</div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- QUÉ ES UN PROTOTIPO VÁLIDO -->
+  <div class="sec-header" style="border-color:var(--cyan);margin-top:2rem;margin-bottom:1rem">
+    <span class="sec-num" style="color:var(--cyan)">→</span>
+    <div><span class="sec-title">Qué cuenta como prototipo válido</span></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:1.5rem">
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-top:3px solid var(--cyan)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.88rem;color:var(--white);margin-bottom:.4rem">🌐 Página HTML</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Un archivo .html que se abre en el navegador. Es la opción más sencilla y la más fácil de entregar y demostrar. <strong style="color:var(--cyan)">Recomendada.</strong></div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-top:3px solid var(--cyan)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.88rem;color:var(--white);margin-bottom:.4rem">🤖 Chatbot con ChatGPT</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Un prompt de sistema bien definido que convierte ChatGPT en vuestro asistente. Entregáis el prompt + captura de la conversación funcionando.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-top:3px solid var(--cyan)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.88rem;color:var(--white);margin-bottom:.4rem">🧠 Clasificador LearningML</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Un modelo entrenado en learningml.es que clasifica imágenes o texto. Entregáis el enlace al proyecto + capturas del modelo funcionando.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-top:3px solid var(--cyan)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.88rem;color:var(--white);margin-bottom:.4rem">🔗 Enlace a herramienta</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Si usáis Gamma, Google Sites u otra herramienta online, entregáis el enlace público. Tiene que ser accesible sin login.</div>
+    </div>
+  </div>
+
+  <!-- CÓMO USAR CHATGPT PARA CONSTRUIR -->
+  <div class="sec-header" style="border-color:var(--cyan);margin-top:1.5rem;margin-bottom:1rem">
+    <span class="sec-num" style="color:var(--cyan)">→</span>
+    <div><span class="sec-title">Cómo usar ChatGPT para construir</span><span class="sec-sub">La diferencia entre explorar y construir está en el prompt</span></div>
+  </div>
+
+  <div class="sidebox sb-cyan">
+    <div class="sidebox-bar"></div>
+    <div class="sidebox-body">
+      <div class="sidebox-label">💬 Prompt de sistema — la base de un chatbot</div>
+      <div class="sidebox-item">Empezad el chat con una instrucción que define quién es la IA y cómo debe comportarse. Ejemplo: <em style="color:#003344">"Eres un asistente para personas mayores que viven solas. Responde siempre con frases cortas, sin tecnicismos y con tono cálido. Si alguien parece triste, pregunta cómo está antes de responder."</em></div>
+      <div class="sidebox-item">Cuanto más concreto sea el rol, más consistente será el comportamiento del chatbot.</div>
+    </div>
+  </div>
+
+  <div class="sidebox sb-cyan" style="margin-top:.75rem">
+    <div class="sidebox-bar"></div>
+    <div class="sidebox-body">
+      <div class="sidebox-label">🌐 Pedir a ChatGPT que genere el HTML</div>
+      <div class="sidebox-item">ChatGPT puede escribir el código HTML de vuestra web o chatbot. Ejemplo de prompt: <em style="color:#003344">"Escríbeme una página HTML sencilla con un chatbot simulado para personas mayores. Que tenga un cuadro de texto, un botón de enviar y respuestas predefinidas para preguntas frecuentes sobre medicación."</em></div>
+      <div class="sidebox-item">Si el código no funciona, pegad el error en ChatGPT y pedid que lo corrija. Ese proceso de corrección también va en la ficha.</div>
+      <div class="sidebox-item">No copiéis el código sin entenderlo. Pedid que os explique cada parte — eso va en la reflexión del Reto 4.</div>
+    </div>
+  </div>
+
+  <div class="sidebox sb-cyan" style="margin-top:.75rem">
+    <div class="sidebox-bar"></div>
+    <div class="sidebox-body">
+      <div class="sidebox-label">🔁 Cómo iterar cuando algo falla</div>
+      <div class="sidebox-item">Cambiad solo una cosa del prompt cada vez. Si cambiáis varias a la vez no sabréis qué funcionó.</div>
+      <div class="sidebox-item">Anotad el prompt que falló y el que funcionó — eso es exactamente lo que pedimos en la ficha.</div>
+      <div class="sidebox-item">Si la IA da algo incorrecto o inventado, incluidlo en la ficha como ejemplo de alucinación.</div>
+    </div>
+  </div>
+
+  <!-- ENTREGA -->
+  <div class="entregable-final">
+    <div class="entregable-final-title">📥 Entrega del Reto 2</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>La entrega tiene <strong style="color:var(--white)">dos partes obligatorias</strong>. Sin las dos, la entrega no se acepta.</div>
+    <div class="entregable-item"><span class="entregable-num">1</span><strong style="color:var(--white)">Ficha del proceso</strong> — descargadla en la pestaña <button onclick="switchTab(6)" style="background:none;border:none;color:var(--mag);font-family:var(--fb);font-size:.875rem;font-weight:700;cursor:pointer;padding:0;text-decoration:underline">Docs →</button>. Rellenadla con las anotaciones de las 3 sesiones: qué hicisteis, capturas con explicación y prompts usados. La estructura es libre, pero tiene que cubrir las tres fases.</div>
+    <div class="entregable-item"><span class="entregable-num">2</span><strong style="color:var(--white)">Prototipo funcional</strong> — un archivo HTML, un enlace a vuestra herramienta (Gamma, LearningML, Google Sites…) o el prompt de sistema de vuestro chatbot con capturas de funcionamiento. Tiene que poderse probar en vivo.</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>Guardad la ficha como <strong style="color:var(--white)">R2_NombreDelEquipo</strong> y entregadla junto al prototipo por Teams. Una entrega por equipo.</div>
+  </div>
+
+</section>
+
+<section class="tab-panel" id="tab-4">
+  <div class="week-banner wb-lime" data-label="S3">
+    <div class="week-num">Reto 3 · ~3 sesiones</div><div class="week-title">Comunicar</div>
+    <div class="week-sub">Herramienta creativa para que el mundo conozca vuestra solución</div>
+  </div>
+  <div class="semana-progress"><span class="sp-label">Retos</span><span class="sp-dot c"></span><span class="sp-dot c"></span><span class="sp-dot active"></span><span class="sp-dot"></span></div>
+  <div class="coming-soon" data-label="S3">
+    <span class="cs-icon">📣</span><div class="cs-title">Este reto se desarrolla próximamente</div>
+    <div class="cs-sub">Tenéis una solución que funciona. Ahora tenéis que hacer que alguien quiera conocerla.</div>
+    <div class="cs-fases">
+      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--lime)">Fase 1</div><div class="cs-fase-title">Elegir formato creativo</div><div class="cs-fase-desc">Vídeo, web, podcast, revista, campaña… El que mejor cuente vuestra historia.</div></div>
+      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--lime)">Fase 2</div><div class="cs-fase-title">Producción con IA</div><div class="cs-fase-desc">Textos, voces, imágenes, diseños — todo producido con las herramientas que ya conocéis.</div></div>
+      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--lime)">Fase 3</div><div class="cs-fase-title">Versión final</div><div class="cs-fase-desc">Producto de comunicación cerrado y listo para el Demo Day.</div></div>
+    </div>
+    <span class="cs-badge">Contenido disponible próximamente</span>
+  </div>
+</section>
+
+<section class="tab-panel" id="tab-5">
+  <div class="week-banner wb-gold" data-label="S4">
+    <div class="week-num">Reto 4 · 2 sesiones</div>
+    <div class="week-title">Demo Day</div>
+    <div class="week-sub">Afinar el pitch y presentar ante el jurado externo</div>
+  </div>
+  <div class="semana-progress">
+    <span class="sp-label">Retos</span>
+    <span class="sp-dot c"></span><span class="sp-dot c"></span><span class="sp-dot c"></span><span class="sp-dot active"></span>
+  </div>
+
+  <div class="aviso-p20" style="border-color:var(--gold);background:rgba(192,139,0,.08)">
+    <span class="aviso-icon">🏆</span>
+    <div class="aviso-text"><strong>Este reto no tiene entregables nuevos.</strong> Ya construisteis el prototipo. Ya creasteis la herramienta de comunicación. Ahora solo tenéis que prepararos para presentarlo todo de la mejor manera posible ante el jurado externo.</div>
+  </div>
+
+  <!-- QUÉ TENÉIS QUE PRESENTAR -->
+  <div class="sec-header" style="border-color:var(--gold);margin-top:2rem;margin-bottom:1rem">
+    <span class="sec-num" style="color:var(--gold)">→</span>
+    <div><span class="sec-title">Qué tenéis que presentar el día del jurado</span><span class="sec-sub">Tres piezas, en este orden</span></div>
+  </div>
+
+  <div style="display:grid;gap:1rem;margin-bottom:2rem">
+
+    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(192,139,0,.25)">
+      <div style="background:var(--gold);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem">
+        <div style="font-family:var(--fh);font-size:1.6rem;font-weight:800;color:rgba(255,255,255,.3);line-height:1">01</div>
+        <div>
+          <div style="font-family:var(--fh);font-weight:800;font-size:1rem;color:#fff">Póster</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.75)">~2 minutos · explicación visual en pie</div>
+        </div>
+      </div>
+      <div style="padding:1rem 1.25rem">
+        <p style="font-size:.875rem;color:#ccc;line-height:1.6;margin-bottom:.75rem">Mostráis el póster al jurado y lo comentáis. No leáis el texto — contadlo. El póster tiene que resumir en un vistazo: el colectivo al que ayudáis, el problema que resolvéis y cómo lo hace vuestra solución con IA.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Mostrad el colectivo y el problema</div>
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Explicad qué hace la IA exactamente</div>
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Destacad el nombre del proyecto</div>
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Que el jurado pueda leerlo de lejos</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(192,139,0,.25)">
+      <div style="background:var(--gold);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem">
+        <div style="font-family:var(--fh);font-size:1.6rem;font-weight:800;color:rgba(255,255,255,.3);line-height:1">02</div>
+        <div>
+          <div style="font-family:var(--fh);font-weight:800;font-size:1rem;color:#fff">Vídeo</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.75)">duración del vídeo · se proyecta en silencio o con comentario breve</div>
+        </div>
+      </div>
+      <div style="padding:1rem 1.25rem">
+        <p style="font-size:.875rem;color:#ccc;line-height:1.6;margin-bottom:.75rem">Ponéis el vídeo. Mientras suena, podéis estar en silencio o añadir algún comentario breve si aporta. Cuando termina, en una frase decís qué queríais transmitir y si lo conseguisteis.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Tened el vídeo listo antes de empezar</div>
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Probad audio y pantalla en el aula</div>
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Subidlo a YouTube o Drive, no confiéis en el archivo local</div>
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Plan B: enlace de reserva en el móvil</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(192,139,0,.25)">
+      <div style="background:var(--gold);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem">
+        <div style="font-family:var(--fh);font-size:1.6rem;font-weight:800;color:rgba(255,255,255,.3);line-height:1">03</div>
+        <div>
+          <div style="font-family:var(--fh);font-weight:800;font-size:1rem;color:#fff">Demo en vivo</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.75)">~3 minutos · el prototipo funcionando delante del jurado</div>
+        </div>
+      </div>
+      <div style="padding:1rem 1.25rem">
+        <p style="font-size:.875rem;color:#ccc;line-height:1.6;margin-bottom:.75rem">La parte más importante. Abrís el prototipo y lo mostráis funcionando en tiempo real. No explicáis lo que haría — lo hacéis. Alguien del equipo maneja el prototipo mientras otro comenta lo que está pasando.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Seguid siempre el mismo guión de demo</div>
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Ensayadlo mínimo 3 veces cronometrado</div>
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Tened el prototipo ya abierto antes de empezar</div>
+          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Si algo falla, explicad lo que debería pasar y seguid</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="sec-header" style="border-color:var(--gold);margin-bottom:1rem">
+    <span class="sec-num" style="color:var(--gold)">→</span>
+    <div><span class="sec-title">Qué preparar antes del Demo Day</span><span class="sec-sub">Todo esto tiene que estar listo cuando llegue el día</span></div>
+  </div>
+
+  <div class="bloque b-pc" style="margin-bottom:1rem">
+    <div class="bloque-head">🎙 Repartid quién dice qué</div>
+    <div class="bloque-item">Decided entre todos quién presenta cada parte: quién habla del colectivo y el problema, quién explica la solución, quién maneja el prototipo durante la demo y quién comenta lo que está pasando en pantalla.</div>
+    <div class="bloque-item">No tiene que hablar solo una persona. El jurado valora que el trabajo se note de equipo. Repartid el protagonismo de forma que cada miembro tenga un momento claro.</div>
+    <div class="bloque-item">Poned por escrito el orden: quién habla primero, en qué momento entra cada uno, cómo se hace el traspaso. Que no haya dudas el día de la presentación.</div>
+  </div>
+
+  <div class="bloque b-pc" style="margin-bottom:1rem">
+    <div class="bloque-head">📋 Preparad el guión de la demo</div>
+    <div class="bloque-item">Decidid exactamente qué vais a hacer con el prototipo: qué escribís, qué pulsáis, qué resultado mostráis. Seguid siempre el mismo recorrido — no improvisad durante la demo.</div>
+    <div class="bloque-item">Tened el prototipo ya abierto y en el punto de inicio antes de que empiece vuestra presentación. No perdáis tiempo buscando archivos o iniciando sesión delante del jurado.</div>
+    <div class="bloque-item">Preparad un Plan B: si el prototipo no carga o falla, ¿qué hacéis? Tened capturas de pantalla o una grabación corta del prototipo funcionando como reserva.</div>
+  </div>
+
+  <div class="bloque b-pc" style="margin-bottom:2rem">
+    <div class="bloque-head">🎬 Preparad el vídeo y el póster</div>
+    <div class="bloque-item">Subid el vídeo a YouTube o a Drive con anterioridad. No confiéis en el archivo local — siempre puede haber problemas de formato o de reproducción en otro ordenador.</div>
+    <div class="bloque-item">Comprobad que el audio se oye bien en el aula y que el vídeo se ve en la pantalla del proyector. Hacedlo antes del día, no el mismo día.</div>
+    <div class="bloque-item">El póster tiene que poder leerse desde donde estará el jurado. Si lo imprimís, comprobad el tamaño. Si lo mostráis en pantalla, aseguraos de que no queda cortado.</div>
+  </div>
+
+  <!-- DEMO DAY -->
+  <div class="sec-header" style="border-color:var(--gold);margin-bottom:1rem">
+    <span class="sec-num" style="color:var(--gold)">→</span>
+    <div><span class="sec-title">El Demo Day</span><span class="sec-sub">Dos sesiones · todos los equipos presentan ante el jurado externo</span></div>
+  </div>
+
+  <div style="background:#1a1a1a;border-radius:var(--r);padding:1.25rem;border:1px solid rgba(192,139,0,.3);margin-bottom:1rem">
+    <p style="font-size:.875rem;color:#ccc;line-height:1.7;margin-bottom:1rem">El Demo Day se celebra en dos sesiones para que todos los equipos puedan presentar. El jurado externo verá todas las presentaciones y al final de la segunda sesión anunciará el ganador. Mientras no es vuestro turno, sois público — escuchad con respeto y aprended de cómo lo hacen los demás equipos.</p>
+    <div style="display:grid;gap:.5rem">
+      <div style="background:#111;border-radius:6px;padding:.75rem 1rem;display:flex;gap:.75rem;align-items:flex-start">
+        <div style="font-family:var(--fh);font-weight:800;font-size:.75rem;color:var(--gold);min-width:60px;padding-top:.05rem">Sesión 1</div>
+        <div style="font-size:.8rem;color:#bbb;line-height:1.5">Presentan la mitad de los equipos. El jurado escucha, toma notas y puede hacer preguntas breves al acabar cada presentación.</div>
+      </div>
+      <div style="background:#111;border-radius:6px;padding:.75rem 1rem;display:flex;gap:.75rem;align-items:flex-start">
+        <div style="font-family:var(--fh);font-weight:800;font-size:.75rem;color:var(--gold);min-width:60px;padding-top:.05rem">Sesión 2</div>
+        <div style="font-size:.8rem;color:#bbb;line-height:1.5">Presentan el resto de los equipos. Al terminar la última presentación, el jurado delibera y anuncia el ganador.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bloque b-warn" style="margin-bottom:2rem">
+    <div class="bloque-head">⚡ El día de vuestra presentación</div>
+    <div class="bloque-item">Llegad con todo listo. No es el momento de hacer cambios de última hora.</div>
+    <div class="bloque-item">Si algo falla, no os disculpéis ni os desesperéis. Activad el Plan B con calma y seguid adelante. El jurado valora cómo reaccionáis a los imprevistos.</div>
+    <div class="bloque-item">En las preguntas, respondéis con lo que sabéis. Si no sabéis algo, decidlo con honestidad — es mucho mejor que inventarse una respuesta.</div>
+  </div>
+
+  <!-- CONSEJOS PITCH -->
+  <div class="sec-header" style="border-color:var(--gold);margin-bottom:1rem">
+    <span class="sec-num" style="color:var(--gold)">→</span>
+    <div><span class="sec-title">Consejos para el pitch</span><span class="sec-sub">Cosas que marcan la diferencia</span></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:2rem">
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Empezad fuerte</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">La primera frase tiene que enganchar. Contad el problema desde la perspectiva de la persona real que lo sufre, no como un dato abstracto.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">No leáis</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Mirad al jurado, no a la pantalla. Conocéis el proyecto mejor que nadie — no hace falta leer lo que ya sabéis.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Mostrad, no contéis</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">En la demo, no digáis "esto podría hacer X". Haced X. El jurado quiere ver, no imaginar.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Honestidad sobre límites</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Si la IA alucinó, si algo no funciona del todo — decidlo. Un pitch honesto vale más que uno que exagera lo que no existe.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Repartid el protagonismo</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Que hable más de uno. El jurado valora que sea un trabajo de equipo real, no que una persona cargue con todo.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Sin prisas</div>
+      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Hablad despacio y con pausa. Si os pasáis de tiempo, recortad — nunca aceleréis atropellando. Mejor menos cosas bien contadas.</div>
+    </div>
+  </div>
+
+  <div class="sidebox sb-gold">
+    <div class="sidebox-bar"></div>
+    <div class="sidebox-body">
+      <div class="sidebox-label">💡 Recordad</div>
+      <div class="sidebox-item">Este reto no tiene entregables. El único objetivo es presentar bien lo que ya tenéis.</div>
+      <div class="sidebox-item">El jurado va a ver el póster, el vídeo y la demo. Esas tres piezas son todo lo que cuenta.</div>
+      <div class="sidebox-item">El trabajo ya está hecho. Ahora solo hay que mostrarlo con confianza.</div>
+    </div>
+  </div>
+
+</section>
+
+<section class="tab-panel" id="tab-6">
+  <!-- Documentos por reto -->
+  <div class="sec-header mag" style="margin-bottom:1.25rem">
+    <span class="sec-num">📁</span>
+    <div><span class="sec-title">Documentos de entrega</span><span class="sec-sub">Un documento Word por cada reto — descargad el que corresponda</span></div>
+  </div>
+
+  <p class="body-text">Cada reto tiene su propio documento de entrega. Lo rellenáis durante ese reto y lo entregáis al terminar. Los documentos de los retos siguientes se publicarán cuando llegue el momento.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.75rem;margin-bottom:2rem">
+
+    <div style="background:#111;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08)">
+      <div style="background:var(--mag);padding:.75rem 1rem">
+        <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.7);text-transform:uppercase;margin-bottom:.2rem">Reto 1 · Investigar</div>
+        <div style="font-family:var(--fh);font-weight:700;font-size:.9rem;color:#fff">Documento de entrega</div>
+      </div>
+      <div style="padding:.9rem 1rem">
+        <div style="font-size:.78rem;color:#bbb;margin-bottom:.75rem;line-height:1.5">Ficha del Proyecto · Las 3 ideas · Validación · Plan de sprint</div>
+        <a href="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,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" download="R1_AI_Challenge_NombreEquipo.docx" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--mag);color:#fff;font-family:var(--fh);font-size:.72rem;font-weight:700;padding:.4rem .9rem;border-radius:99px;text-decoration:none">⬇ Descargar</a>
+      </div>
+    </div>
+
+    <div style="background:#111;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08)">
+      <div style="background:var(--cyan);padding:.75rem 1rem">
+        <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.7);text-transform:uppercase;margin-bottom:.2rem">Reto 2 · Construir</div>
+        <div style="font-family:var(--fh);font-weight:700;font-size:.9rem;color:#fff">Documento de entrega</div>
+      </div>
+      <div style="padding:.9rem 1rem">
+        <div style="font-size:.78rem;color:#bbb;margin-bottom:.75rem;line-height:1.5">Ficha del proceso · Capturas · Prototipo funcional</div>
+        <a href="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,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" download="R2_AI_Challenge_NombreEquipo.docx" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--cyan);color:#fff;font-family:var(--fh);font-size:.72rem;font-weight:700;padding:.4rem .9rem;border-radius:99px;text-decoration:none">⬇ Descargar</a>
+      </div>
+    </div>
+
+    <div style="background:#111;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.06);opacity:.45">
+      <div style="background:#2a2a2a;padding:.75rem 1rem">
+        <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:.2rem">Reto 3 · Comunicar</div>
+        <div style="font-family:var(--fh);font-weight:700;font-size:.9rem;color:#666">Documento de entrega</div>
+      </div>
+      <div style="padding:.9rem 1rem">
+        <div style="font-size:.78rem;color:#555;margin-bottom:.75rem;line-height:1.5">Herramienta creativa · Formato elegido · Entregables</div>
+        <span style="display:inline-flex;align-items:center;gap:.4rem;background:#222;color:#555;font-family:var(--fh);font-size:.72rem;font-weight:700;padding:.4rem .9rem;border-radius:99px">🔒 Disponible en el Reto 3</span>
+      </div>
+    </div>
+
+    <div style="background:#111;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.06);opacity:.45">
+      <div style="background:#2a2a2a;padding:.75rem 1rem">
+        <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:.2rem">Reto 4 · Demo Day</div>
+        <div style="font-family:var(--fh);font-weight:700;font-size:.9rem;color:#666">Documento de entrega</div>
+      </div>
+      <div style="padding:.9rem 1rem">
+        <div style="font-size:.78rem;color:#555;margin-bottom:.75rem;line-height:1.5">Reflexión crítica · Pitch · Entregables finales</div>
+        <span style="display:inline-flex;align-items:center;gap:.4rem;background:#222;color:#555;font-family:var(--fh);font-size:.72rem;font-weight:700;padding:.4rem .9rem;border-radius:99px">🔒 Disponible en el Reto 4</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="tab-panel" id="tab-7">
+  <div class="sec-header mag" style="margin-top:2rem;margin-bottom:1.25rem">
+    <span class="sec-num">06</span>
+    <div><span class="sec-title">¿Cómo se evalúa?</span><span class="sec-sub">Con esto puntúa el jurado — estudiadla antes de presentar</span></div>
+  </div>
+  <p class="body-text">La puntuación final es la media ponderada de los seis criterios. El equipo con mayor puntuación gana.</p>
+  <table class="rubric-table">
+    <thead><tr><th>Criterio</th><th>0 pts</th><th>4 pts</th><th>7 pts</th><th class="gold-col">10 pts</th><th>Peso</th></tr></thead>
+    <tbody>
+      <tr><td>Colectivo e impacto social</td><td>Sin colectivo</td><td>Colectivo vago</td><td>Concreto y justificado</td><td class="gold-col">Impacto real y medible</td><td class="peso">15%</td></tr>
+      <tr><td>Solución con IA</td><td>La IA no aporta</td><td>Uso superficial</td><td>Resuelve algo clave</td><td class="gold-col">Sin IA no existiría</td><td class="peso">20%</td></tr>
+      <tr><td>Prototipo funcional</td><td>No funciona</td><td>Parcialmente</td><td>Funciona y cumple</td><td class="gold-col">Sólido y bien ejecutado</td><td class="peso">20%</td></tr>
+      <tr><td>Herramienta comunicación</td><td>Sin coherencia</td><td>Básica</td><td>Bien ejecutada</td><td class="gold-col">Sorprende, se recuerda</td><td class="peso">20%</td></tr>
+      <tr><td>Pitch ante el jurado</td><td>Confuso</td><td>A medias</td><td>Claro y con demo</td><td class="gold-col">Engancha desde el inicio</td><td class="peso">15%</td></tr>
+      <tr><td>Reflexión crítica</td><td>Sin análisis</td><td>Superficial</td><td>Analizan qué falló</td><td class="gold-col">Mejoras concretas y reales</td><td class="peso">10%</td></tr>
+      <tr class="rubric-total"><td colspan="5">Puntuación total — media ponderada</td><td class="peso">100%</td></tr>
+    </tbody>
+  </table>
+  <div class="sidebox sb-gold">
+    <div class="sidebox-bar"></div>
+    <div class="sidebox-body">
+      <div class="sidebox-label">🏆 Lo que busca el jurado en el proyecto ganador</div>
+      <div class="sidebox-item">Proyectos que entiendan para qué sirve la IA — y dónde falla.</div>
+      <div class="sidebox-item">Un pitch honesto sobre los límites vale más que uno que vende lo que no existe.</div>
+      <div class="sidebox-item">La herramienta de comunicación se valora igual que la solución técnica.</div>
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-title">AI Creative Challenge</div>
+    <div class="footer-sub">4.º ESO · Tecnología y Digitalización · 4 retos · Jurado externo · Un ganador</div>
+    <div class="footer-sub" style="margin-top:.4rem">Inspirado en <span class="footer-mag">OdiseIA4Good</span> · Hackathon Internacional de IA para Colectivos Vulnerables</div>
+  </div>
+</footer>
+
+<script>
+function goToApp(){
+  document.getElementById('app').scrollIntoView({behavior:'smooth'});
+}
+function switchTab(n){
+  document.querySelectorAll('.tab-panel').forEach((p,i)=>p.classList.toggle('active',i===n));
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===n));
+  document.getElementById('app').scrollIntoView({behavior:'smooth'});
+}
+function toggleFase(h){h.closest('.fase').classList.toggle('open')}
+function filtrarTerminos(q){
+  const s=q.toLowerCase().trim();
+  const cards=document.querySelectorAll('.term-card');
+  let visible=0;
+  cards.forEach(c=>{
+    const match=!s||c.dataset.term.includes(s)||c.querySelector('.term-name').textContent.toLowerCase().includes(s)||c.querySelector('.term-def').textContent.toLowerCase().includes(s);
+    c.classList.toggle('hidden',!match);
+    if(match)visible++;
+  });
+  ['ia','proyecto','demoday'].forEach(id=>{
+    const cat=document.getElementById('cat-'+id);
+    if(!cat)return;
+    const anyVisible=[...cat.querySelectorAll('.term-card')].some(c=>!c.classList.contains('hidden'));
+    cat.style.display=anyVisible?'':'none';
+  });
+  document.getElementById('no-results').style.display=visible===0?'block':'none';
+}
+</script>
+</body>
+</html>
