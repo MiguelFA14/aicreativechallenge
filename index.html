@@ -25,7 +25,7 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
 /* ── LANDING ── */
 .landing{
   min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-  padding:3rem 4vw;;position:relative;overflow:hidden;
+  padding:3rem 4vw;position:relative;overflow:hidden;
   background:var(--ink);
 }
 .landing::before{
@@ -1101,25 +1101,206 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
 
 <section class="tab-panel" id="tab-4">
   <div class="week-banner wb-lime" data-label="S3">
-    <div class="week-num">Reto 3 · ~3 sesiones</div><div class="week-title">Comunicar</div>
-    <div class="week-sub">Herramienta creativa para que el mundo conozca vuestra solución</div>
+    <div class="week-num">Reto 3 · ~3 sesiones</div>
+    <div class="week-title">Comunicar</div>
+    <div class="week-sub">Vídeo promocional + póster publicitario producidos con IA</div>
   </div>
-  <div class="semana-progress"><span class="sp-label">Retos</span><span class="sp-dot c"></span><span class="sp-dot c"></span><span class="sp-dot active"></span><span class="sp-dot"></span></div>
-  <div class="coming-soon" data-label="S3">
-    <span class="cs-icon">📣</span><div class="cs-title">Este reto se desarrolla próximamente</div>
-    <div class="cs-sub">Tenéis una solución que funciona. Ahora tenéis que hacer que alguien quiera conocerla.</div>
-    <div class="cs-fases">
-      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--lime)">Fase 1</div><div class="cs-fase-title">Elegir formato creativo</div><div class="cs-fase-desc">Vídeo, web, podcast, revista, campaña… El que mejor cuente vuestra historia.</div></div>
-      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--lime)">Fase 2</div><div class="cs-fase-title">Producción con IA</div><div class="cs-fase-desc">Textos, voces, imágenes, diseños — todo producido con las herramientas que ya conocéis.</div></div>
-      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--lime)">Fase 3</div><div class="cs-fase-title">Versión final</div><div class="cs-fase-desc">Producto de comunicación cerrado y listo para el Demo Day.</div></div>
+  <div class="semana-progress">
+    <span class="sp-label">Retos</span>
+    <span class="sp-dot c"></span><span class="sp-dot c"></span><span class="sp-dot active"></span><span class="sp-dot"></span>
+  </div>
+
+  <div class="aviso-p20">
+    <span class="aviso-icon">✅</span>
+    <div class="aviso-text"><strong>Tenéis un prototipo que funciona.</strong> Ahora tenéis que lograr que alguien quiera usarlo. Vuestros dos entregables son un <strong>vídeo promocional</strong> y un <strong>póster publicitario</strong>, ambos producidos con IA. No se toca el prototipo — toda la energía va a comunicarlo.</div>
+  </div>
+
+  <!-- QUÉS SON LOS DOS ENTREGABLES -->
+  <div class="sec-header" style="border-color:var(--lime);margin-top:1.5rem;margin-bottom:1rem">
+    <span class="sec-num" style="color:var(--lime)">→</span>
+    <div><span class="sec-title">Vuestros dos entregables</span><span class="sec-sub">Uno no sustituye al otro — los dos son obligatorios</span></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem">
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1.25rem;border-top:3px solid var(--lime)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:.5rem">🎬 Vídeo promocional</div>
+      <div style="font-size:.8rem;color:var(--mid);line-height:1.6;margin-bottom:.75rem">Entre 60 y 90 segundos. Explica el problema, presenta la solución y termina con una llamada a la acción. Producido con IA: guion, voz en off, imágenes o animaciones.</div>
+      <div style="font-family:var(--fm);font-size:.7rem;color:var(--lime);letter-spacing:.04em">Formato: .mp4 o enlace a Canva/Capcut</div>
     </div>
-    <span class="cs-badge">Contenido disponible próximamente</span>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:1.25rem;border-top:3px solid var(--lime)">
+      <div style="font-family:var(--fh);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:.5rem">🖼 Póster publicitario</div>
+      <div style="font-size:.8rem;color:var(--mid);line-height:1.6;margin-bottom:.75rem">Formato A3 o equivalente digital. Un solo golpe visual que comunique quiénes sois, a quién ayudáis y por qué vuestra solución importa. Imagen generada con IA, texto redactado con IA.</div>
+      <div style="font-family:var(--fm);font-size:.7rem;color:var(--lime);letter-spacing:.04em">Formato: .pdf o .png de alta resolución</div>
+    </div>
   </div>
+
+  <!-- FASE 1 -->
+  <div class="fase fase-f1 open">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 1</div><div class="fase-title">Planificación y guion</div><div class="fase-subtitle">Decidir el mensaje antes de producir nada</div></div>
+      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">1</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <p class="body-text">Antes de abrir ninguna herramienta, tenéis que tener claro qué queréis decir. Una mala decisión de mensaje aquí se nota en todo lo demás.</p>
+      <div class="bloque b-info">
+        <div class="bloque-head">📋 Las tres preguntas que tenéis que responder primero</div>
+        <div class="bloque-item"><strong style="color:var(--white)">¿Cuál es el problema?</strong> En una frase, sin tecnicismos. Como si se lo explicarais a alguien que no sabe nada del tema.</div>
+        <div class="bloque-item"><strong style="color:var(--white)">¿Qué hace vuestra solución?</strong> En dos frases: qué hace y por qué la IA es necesaria para hacerlo.</div>
+        <div class="bloque-item"><strong style="color:var(--white)">¿A quién va dirigido?</strong> No es "a todo el mundo" — definid un destinatario concreto: quién lo ve, quién lo comparte, quién actúa.</div>
+      </div>
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 Guion del vídeo con IA</div>
+        <div class="bloque-item">Usad Claude o ChatGPT para generar el guion. Prompt de partida: <em style="color:#1a3300">"Escribe un guion de 75 segundos para un vídeo promocional sobre [nombre del proyecto]. El proyecto ayuda a [colectivo] con el problema de [problema]. La solución es [descripción breve]. El tono debe ser cercano y motivador. Incluye: gancho inicial (10s), problema (15s), solución (25s), demostración (15s) y llamada a la acción (10s)."</em></div>
+        <div class="bloque-item">Revisad el guion generado en equipo. Cambiad lo que suene artificial o que no refleje bien vuestro proyecto. La IA propone, vosotros decidís.</div>
+      </div>
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 Concepto del póster con IA</div>
+        <div class="bloque-item">Antes de generar la imagen, redactad el mensaje principal del póster: titular, subtítulo y llamada a la acción. Usad la IA para proponer variantes: <em style="color:#1a3300">"Propón 5 titulares diferentes para un póster sobre [proyecto]. Deben ser impactantes, en menos de 8 palabras, y dirigidos a [destinatario]."</em></div>
+        <div class="bloque-item">Elegid el que más os convenza y acordad el estilo visual antes de empezar a producir.</div>
+      </div>
+      <div class="bloque b-entrega">
+        <div class="bloque-head">🏁 Qué anotáis en la ficha tras esta sesión</div>
+        <div class="bloque-item">Las tres respuestas (problema, solución, destinatario) escritas en vuestras propias palabras.</div>
+        <div class="bloque-item">El guion del vídeo — versión IA + los cambios que hicisteis y por qué.</div>
+        <div class="bloque-item">El titular del póster elegido y las alternativas que descartasteis.</div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="fase fase-f2">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 2</div><div class="fase-title">Producción</div><div class="fase-subtitle">Vídeo y póster con las herramientas de IA</div></div>
+      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">2</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+
+      <div class="sec-header" style="border-color:var(--lime);margin-bottom:.75rem">
+        <span class="sec-num" style="color:var(--lime);font-size:.8rem">▸</span>
+        <div><span class="sec-title" style="font-size:.95rem">Producción del vídeo</span></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.6rem;margin-bottom:1rem">
+        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🎞 Canva (vídeo)</div>
+          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Plantillas de vídeo, música libre, texto animado. La opción más completa para empezar sin experiencia.</div>
+          <a href="https://canva.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">canva.com →</a>
+          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Gratuito con cuenta escolar</span>
+        </div>
+        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">✂️ CapCut</div>
+          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Editor de vídeo con IA: subtítulos automáticos, voz sintética, eliminación de fondo. Ideal si tenéis capturas de pantalla del prototipo.</div>
+          <a href="https://capcut.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">capcut.com →</a>
+          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Gratuito en web</span>
+        </div>
+        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🔊 ElevenLabs</div>
+          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Genera voz en off a partir del guion. Pegáis el texto y descargáis el audio. Combinadlo con Canva o CapCut.</div>
+          <a href="https://elevenlabs.io" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">elevenlabs.io →</a>
+          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Gratuito (límite de caracteres)</span>
+        </div>
+        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🖼 Sora / Runway</div>
+          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Generadores de vídeo por IA a partir de texto. Útil para secuencias visuales abstractas o ilustrativas del problema.</div>
+          <a href="https://runwayml.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">runwayml.com →</a>
+          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Plan gratuito limitado</span>
+        </div>
+      </div>
+
+      <div class="sec-header" style="border-color:var(--lime);margin-bottom:.75rem;margin-top:1.25rem">
+        <span class="sec-num" style="color:var(--lime);font-size:.8rem">▸</span>
+        <div><span class="sec-title" style="font-size:.95rem">Producción del póster</span></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.6rem;margin-bottom:1rem">
+        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🎨 Canva (póster)</div>
+          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Plantillas de póster A3, generador de imágenes con IA integrado (Magic Media), paletas automáticas. La opción recomendada.</div>
+          <a href="https://canva.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">canva.com →</a>
+        </div>
+        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🤖 Adobe Firefly</div>
+          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Generador de imágenes con mucho control sobre el estilo. Ideal para imágenes realistas o ilustrativas del colectivo.</div>
+          <a href="https://firefly.adobe.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">firefly.adobe.com →</a>
+          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Gratuito con cuenta Adobe</span>
+        </div>
+        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">✨ DALL·E / ImageFX</div>
+          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Generadores de imagen por texto. ImageFX (Google) es gratuito sin límite. DALL·E está integrado en ChatGPT Plus.</div>
+          <a href="https://labs.google/fx/tools/image-fx" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">ImageFX →</a>
+        </div>
+      </div>
+
+      <div class="sidebox sb-lime">
+        <div class="sidebox-bar"></div>
+        <div class="sidebox-body">
+          <div class="sidebox-label">💡 Prompt para generar la imagen del póster</div>
+          <div class="sidebox-item">Estructura que funciona: <em style="color:#1a3300">"[Estilo visual: fotografía realista / ilustración digital / diseño gráfico minimalista] de [descripción de la escena o sujeto principal], relacionado con [colectivo], tono [emotivo/esperanzador/urgente], colores [paleta de colores], fondo [descripción del fondo]."</em></div>
+          <div class="sidebox-item">Anotad el prompt exacto que usasteis — va en la ficha. Si generasteis varias versiones, guardad las que descartasteis y explicad por qué elegisteis la final.</div>
+        </div>
+      </div>
+
+      <div class="bloque b-entrega" style="margin-top:1rem">
+        <div class="bloque-head">🏁 Qué anotáis en la ficha tras esta sesión</div>
+        <div class="bloque-item">Los prompts exactos que usasteis para generar la voz, las imágenes o los elementos visuales.</div>
+        <div class="bloque-item">2 capturas mínimo del proceso de producción — una del vídeo y una del póster en elaboración.</div>
+        <div class="bloque-item">Qué generó la IA y qué editasteis vosotros manualmente. La autoría es compartida — sé honesto.</div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="fase fase-f3">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 3</div><div class="fase-title">Revisión y cierre</div><div class="fase-subtitle">Pulir, validar y dejar todo listo para el Demo Day</div></div>
+      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">3</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 Checklist antes de dar el reto por cerrado</div>
+        <div class="bloque-item">🎬 <strong style="color:var(--white)">Vídeo:</strong> ¿dura entre 60 y 90 segundos? ¿Se escucha bien la voz? ¿Se lee el texto? Reproducidlo en el proyector del aula para comprobar calidad de imagen y sonido.</div>
+        <div class="bloque-item">🖼 <strong style="color:var(--white)">Póster:</strong> ¿se lee el titular a distancia? ¿Aparece el nombre del proyecto y del equipo? ¿Tiene el formato correcto (A3 / alta resolución)?</div>
+        <div class="bloque-item">📋 <strong style="color:var(--white)">Coherencia:</strong> ¿el vídeo y el póster cuentan lo mismo? ¿Tienen un estilo visual consistente entre sí?</div>
+        <div class="bloque-item">📁 <strong style="color:var(--white)">Archivos:</strong> ¿tenéis el .mp4 (o enlace) y el .pdf/.png listos para entregar? Nombradlos ya: <strong style="color:var(--lime)">R3_NombreDelEquipo_video</strong> y <strong style="color:var(--lime)">R3_NombreDelEquipo_poster</strong>.</div>
+      </div>
+      <div class="bloque b-warn">
+        <div class="bloque-head">⚡ Para el Demo Day</div>
+        <div class="bloque-item">El vídeo se reproduce durante la presentación — aseguraos de que funciona sin conexión o tened el enlace preparado.</div>
+        <div class="bloque-item">El póster se puede imprimir o proyectar. El/la profesor/a os dirá qué formato usar el día de la presentación.</div>
+      </div>
+      <div class="bloque b-entrega">
+        <div class="bloque-head">🏁 Qué anotáis en la ficha tras esta sesión</div>
+        <div class="bloque-item">Una frase por entregable: ¿estáis satisfechos con el resultado? ¿Qué cambiaríais si tuvierais más tiempo?</div>
+        <div class="bloque-item">Una captura del póster final y el enlace o nombre del archivo del vídeo final.</div>
+      </div>
+      <div class="sidebox sb-lime" style="margin-top:.75rem">
+        <div class="sidebox-bar"></div>
+        <div class="sidebox-body">
+          <div class="sidebox-label">✅ Al terminar este reto tendréis</div>
+          <div class="sidebox-item">Un vídeo promocional de 60-90 segundos listo para el Demo Day.</div>
+          <div class="sidebox-item">Un póster publicitario en alta resolución.</div>
+          <div class="sidebox-item">La ficha del Reto 3 completa con prompts, capturas y reflexión.</div>
+          <div class="sidebox-item">Los archivos nombrados y listos para entregar.</div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ENTREGA FINAL -->
+  <div class="entregable-final">
+    <div class="entregable-final-title">📥 Entrega del Reto 3</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>La entrega tiene <strong style="color:var(--white)">tres partes obligatorias</strong>. Sin las tres, la entrega no se acepta.</div>
+    <div class="entregable-item"><span class="entregable-num">1</span><strong style="color:var(--white)">Vídeo promocional</strong> — archivo .mp4 o enlace a Canva/CapCut. Duración entre 60 y 90 segundos. Tiene que poder reproducirse sin conexión el día del Demo Day.</div>
+    <div class="entregable-item"><span class="entregable-num">2</span><strong style="color:var(--white)">Póster publicitario</strong> — archivo .pdf o .png en alta resolución (mínimo A3 o 2480×3508 px). Tiene que poder proyectarse o imprimirse.</div>
+    <div class="entregable-item"><span class="entregable-num">3</span><strong style="color:var(--white)">Ficha del Reto 3</strong> — descargadla en la pestaña <button onclick="switchTab(6)" style="background:none;border:none;color:var(--mag);font-family:var(--fb);font-size:.875rem;font-weight:700;cursor:pointer;padding:0;text-decoration:underline">Docs →</button>. Incluye: guion del vídeo (versión IA + cambios), prompts usados para imágenes, capturas del proceso y reflexión final.</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>Nombrad los archivos <strong style="color:var(--white)">R3_NombreDelEquipo_video</strong> y <strong style="color:var(--white)">R3_NombreDelEquipo_poster</strong> y entregadlos junto a la ficha por Teams. Una entrega por equipo.</div>
+  </div>
+
 </section>
 
 <section class="tab-panel" id="tab-5">
   <div class="week-banner wb-gold" data-label="S4">
-    <div class="week-num">Reto 4 · 2 sesiones</div>
+    <div class="week-num">Reto 4 · ~3 sesiones</div>
     <div class="week-title">Demo Day</div>
     <div class="week-sub">Afinar el pitch y presentar ante el jurado externo</div>
   </div>
@@ -1130,171 +1311,211 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
 
   <div class="aviso-p20" style="border-color:var(--gold);background:rgba(192,139,0,.08)">
     <span class="aviso-icon">🏆</span>
-    <div class="aviso-text"><strong>Este reto no tiene entregables nuevos.</strong> Ya construisteis el prototipo. Ya creasteis la herramienta de comunicación. Ahora solo tenéis que prepararos para presentarlo todo de la mejor manera posible ante el jurado externo.</div>
+    <div class="aviso-text"><strong>Este reto no construye nada nuevo.</strong> Ya tenéis el prototipo y los materiales de comunicación. Todo el esfuerzo va a preparar la mejor presentación posible. El jurado externo verá vuestro trabajo por primera vez — el pitch tiene que ser autoexplicativo.</div>
   </div>
 
-  <!-- QUÉ TENÉIS QUE PRESENTAR -->
-  <div class="sec-header" style="border-color:var(--gold);margin-top:2rem;margin-bottom:1rem">
+  <!-- ESTRUCTURA DEL PITCH -->
+  <div class="sec-header" style="border-color:var(--gold);margin-top:1.5rem;margin-bottom:1rem">
     <span class="sec-num" style="color:var(--gold)">→</span>
-    <div><span class="sec-title">Qué tenéis que presentar el día del jurado</span><span class="sec-sub">Tres piezas, en este orden</span></div>
+    <div><span class="sec-title">Estructura del pitch</span><span class="sec-sub">7 minutos por equipo — esta es la distribución exacta</span></div>
   </div>
 
-  <div style="display:grid;gap:1rem;margin-bottom:2rem">
-
-    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(192,139,0,.25)">
-      <div style="background:var(--gold);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem">
-        <div style="font-family:var(--fh);font-size:1.6rem;font-weight:800;color:rgba(255,255,255,.3);line-height:1">01</div>
-        <div>
-          <div style="font-family:var(--fh);font-weight:800;font-size:1rem;color:#fff">Póster</div>
-          <div style="font-size:.72rem;color:rgba(255,255,255,.75)">~2 minutos · explicación visual en pie</div>
-        </div>
-      </div>
-      <div style="padding:1rem 1.25rem">
-        <p style="font-size:.875rem;color:#ccc;line-height:1.6;margin-bottom:.75rem">Mostráis el póster al jurado y lo comentáis. No leáis el texto — contadlo. El póster tiene que resumir en un vistazo: el colectivo al que ayudáis, el problema que resolvéis y cómo lo hace vuestra solución con IA.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Mostrad el colectivo y el problema</div>
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Explicad qué hace la IA exactamente</div>
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Destacad el nombre del proyecto</div>
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Que el jurado pueda leerlo de lejos</div>
-        </div>
-      </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem;margin-bottom:1.5rem">
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
+      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">1 min</div>
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">El problema</div>
+      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">¿A quién afecta? ¿Por qué importa ahora?</div>
     </div>
-
-    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(192,139,0,.25)">
-      <div style="background:var(--gold);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem">
-        <div style="font-family:var(--fh);font-size:1.6rem;font-weight:800;color:rgba(255,255,255,.3);line-height:1">02</div>
-        <div>
-          <div style="font-family:var(--fh);font-weight:800;font-size:1rem;color:#fff">Vídeo</div>
-          <div style="font-size:.72rem;color:rgba(255,255,255,.75)">duración del vídeo · se proyecta en silencio o con comentario breve</div>
-        </div>
-      </div>
-      <div style="padding:1rem 1.25rem">
-        <p style="font-size:.875rem;color:#ccc;line-height:1.6;margin-bottom:.75rem">Ponéis el vídeo. Mientras suena, podéis estar en silencio o añadir algún comentario breve si aporta. Cuando termina, en una frase decís qué queríais transmitir y si lo conseguisteis.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Tened el vídeo listo antes de empezar</div>
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Probad audio y pantalla en el aula</div>
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Subidlo a YouTube o Drive, no confiéis en el archivo local</div>
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Plan B: enlace de reserva en el móvil</div>
-        </div>
-      </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
+      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">2 min</div>
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">Póster + vídeo</div>
+      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">Primero el póster, luego se reproduce el vídeo.</div>
     </div>
-
-    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(192,139,0,.25)">
-      <div style="background:var(--gold);padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem">
-        <div style="font-family:var(--fh);font-size:1.6rem;font-weight:800;color:rgba(255,255,255,.3);line-height:1">03</div>
-        <div>
-          <div style="font-family:var(--fh);font-weight:800;font-size:1rem;color:#fff">Demo en vivo</div>
-          <div style="font-size:.72rem;color:rgba(255,255,255,.75)">~3 minutos · el prototipo funcionando delante del jurado</div>
-        </div>
-      </div>
-      <div style="padding:1rem 1.25rem">
-        <p style="font-size:.875rem;color:#ccc;line-height:1.6;margin-bottom:.75rem">La parte más importante. Abrís el prototipo y lo mostráis funcionando en tiempo real. No explicáis lo que haría — lo hacéis. Alguien del equipo maneja el prototipo mientras otro comenta lo que está pasando.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Seguid siempre el mismo guión de demo</div>
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Ensayadlo mínimo 3 veces cronometrado</div>
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Tened el prototipo ya abierto antes de empezar</div>
-          <div style="background:#111;border-radius:6px;padding:.6rem .75rem;font-size:.78rem;color:var(--gold)">✔ Si algo falla, explicad lo que debería pasar y seguid</div>
-        </div>
-      </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
+      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">2 min</div>
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">Demo en vivo</div>
+      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">La solución funcionando en tiempo real.</div>
     </div>
-
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
+      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">1 min</div>
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">Aprendizajes</div>
+      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">Qué funcionó, qué no y qué cambiaríais.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
+      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">1 min</div>
+      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">Preguntas</div>
+      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">El evaluador puede preguntar a cualquier miembro.</div>
+    </div>
   </div>
 
-  <!-- PREPARACIÓN -->
-  <div class="sec-header" style="border-color:var(--gold);margin-bottom:1rem">
+  <!-- FASE 1 -->
+  <div class="fase fase-f1 open">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 1</div><div class="fase-title">Preparación</div><div class="fase-subtitle">Reflexión crítica y últimos ajustes técnicos</div></div>
+      <span class="fase-tiempo">~1-2 sesiones</span><span class="fase-chevron">▼</span><span class="fase-num">1</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <div class="bloque b-pc">
+        <div class="bloque-head">💻 Qué hacer en esta fase</div>
+        <div class="bloque-item">Escribid la <strong style="color:var(--white)">reflexión crítica</strong> (una por equipo, todos contribuyen): qué salió bien, qué no funcionó como esperabais y qué cambiaríais si tuvierais más tiempo.</div>
+        <div class="bloque-item">Repartid quién habla en cada parte del pitch — todos los miembros tienen que hablar en algún momento.</div>
+        <div class="bloque-item">Comprobad que todo funciona en el <strong style="color:var(--white)">ordenador del aula</strong>, no en el vuestro: prototipo, vídeo y póster.</div>
+        <div class="bloque-item"><strong style="color:var(--white)">Plan B para la demo:</strong> si el prototipo no carga en vivo, ¿qué hacéis? Tened una captura de pantalla o una grabación de respaldo lista.</div>
+      </div>
+      <div class="bloque b-warn">
+        <div class="bloque-head">⚡ Lo que no se puede hacer ya</div>
+        <div class="bloque-item">Añadir funcionalidad nueva al prototipo. Rehacer el vídeo o el póster desde cero. Si algo no está listo, se presenta así y se explica honestamente — el evaluador lo valora más que improvisar.</div>
+      </div>
+      <div class="bloque b-entrega">
+        <div class="bloque-head">🏁 Al terminar esta fase</div>
+        <div class="bloque-item">Reflexión crítica escrita y entregada como <strong style="color:var(--white)">R4_NombreDelEquipo</strong> por Teams.</div>
+        <div class="bloque-item">Todo el material comprobado en el ordenador del aula. Plan B preparado.</div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- FASE 2: DEMO DAY -->
+  <div class="fase fase-f2">
+    <div class="fase-header" onclick="toggleFase(this)">
+      <div><div class="fase-tag">Fase 2</div><div class="fase-title">🎤 Demo Day</div><div class="fase-subtitle">7 minutos por equipo · Se anuncia el ganador</div></div>
+      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">2</span>
+    </div>
+    <div class="fase-body"><div class="fase-content">
+      <div class="bloque b-info">
+        <div class="bloque-head">📋 Cómo funciona</div>
+        <div class="bloque-item">Cada equipo presenta en orden. 7 minutos exactos — el/la profesor/a avisa cuando queda 1 minuto.</div>
+        <div class="bloque-item">El evaluador no conoce vuestro proyecto. No asumáis que sabe nada del contexto — el pitch tiene que ser autoexplicativo.</div>
+        <div class="bloque-item">Tras todas las presentaciones, el evaluador decide el ganador.</div>
+      </div>
+      <div class="bloque b-pc">
+        <div class="bloque-head">✅ Checklist antes de empezar</div>
+        <div class="bloque-item">Prototipo abierto y listo en el ordenador del aula.</div>
+        <div class="bloque-item">Vídeo cargado — sin depender de internet si es posible.</div>
+        <div class="bloque-item">Póster en pantalla o impreso según lo acordado.</div>
+        <div class="bloque-item">Plan B preparado por si algo falla en la demo.</div>
+        <div class="bloque-item">Todos los miembros saben qué parte presentan.</div>
+      </div>
+      <div class="sidebox sb-gold">
+        <div class="sidebox-bar"></div>
+        <div class="sidebox-body">
+          <div class="sidebox-label">🏆 Qué valora el evaluador</div>
+          <div class="sidebox-item">¿El problema está claro y justificado?</div>
+          <div class="sidebox-item">¿El póster y el vídeo comunican solos, sin explicación previa?</div>
+          <div class="sidebox-item">¿La IA hace algo que sin ella no sería posible?</div>
+          <div class="sidebox-item">¿El prototipo funciona en vivo?</div>
+          <div class="sidebox-item">¿El equipo sabe qué falló y por qué?</div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ORDEN DE PRESENTACIONES -->
+  <div class="sec-header" style="border-color:var(--gold);margin-top:1.5rem;margin-bottom:1rem">
     <span class="sec-num" style="color:var(--gold)">→</span>
-    <div><span class="sec-title">Qué preparar antes del Demo Day</span><span class="sec-sub">Todo esto tiene que estar listo cuando llegue el día</span></div>
+    <div><span class="sec-title">Orden de presentaciones</span><span class="sec-sub">Resultado del sorteo — cada clase tiene su propio orden</span></div>
   </div>
 
-  <div class="bloque b-pc" style="margin-bottom:1rem">
-    <div class="bloque-head">🎙 Repartid quién dice qué</div>
-    <div class="bloque-item">Decided entre todos quién presenta cada parte: quién habla del colectivo y el problema, quién explica la solución, quién maneja el prototipo durante la demo y quién comenta lo que está pasando en pantalla.</div>
-    <div class="bloque-item">No tiene que hablar solo una persona. El jurado valora que el trabajo se note de equipo. Repartid el protagonismo de forma que cada miembro tenga un momento claro.</div>
-    <div class="bloque-item">Poned por escrito el orden: quién habla primero, en qué momento entra cada uno, cómo se hace el traspaso. Que no haya dudas el día de la presentación.</div>
+  <div style="margin-bottom:1rem">
+    <button onclick="(function(b,d){d.style.display=d.style.display==='none'?'grid':'none';b.textContent=d.style.display==='none'?'🎲 Revelar orden':'🙈 Ocultar orden'})(this,document.getElementById('sorteo-tabla'))" style="font-family:var(--fh);font-weight:700;font-size:.85rem;background:var(--gold);color:#fff;border:none;padding:.7rem 1.6rem;border-radius:99px;cursor:pointer;letter-spacing:.03em">🎲 Revelar orden de presentaciones</button>
   </div>
 
-  <div class="bloque b-pc" style="margin-bottom:1rem">
-    <div class="bloque-head">📋 Preparad el guión de la demo</div>
-    <div class="bloque-item">Decidid exactamente qué vais a hacer con el prototipo: qué escribís, qué pulsáis, qué resultado mostráis. Seguid siempre el mismo recorrido — no improvisad durante la demo.</div>
-    <div class="bloque-item">Tened el prototipo ya abierto y en el punto de inicio antes de que empiece vuestra presentación. No perdáis tiempo buscando archivos o iniciando sesión delante del jurado.</div>
-    <div class="bloque-item">Preparad un Plan B: si el prototipo no carga o falla, ¿qué hacéis? Tened capturas de pantalla o una grabación corta del prototipo funcionando como reserva.</div>
-  </div>
+  <div id="sorteo-tabla" style="display:none;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
 
-  <div class="bloque b-pc" style="margin-bottom:2rem">
-    <div class="bloque-head">🎬 Preparad el vídeo y el póster</div>
-    <div class="bloque-item">Subid el vídeo a YouTube o a Drive con anterioridad. No confiéis en el archivo local — siempre puede haber problemas de formato o de reproducción en otro ordenador.</div>
-    <div class="bloque-item">Comprobad que el audio se oye bien en el aula y que el vídeo se ve en la pantalla del proyector. Hacedlo antes del día, no el mismo día.</div>
-    <div class="bloque-item">El póster tiene que poder leerse desde donde estará el jurado. Si lo imprimís, comprobad el tamaño. Si lo mostráis en pantalla, aseguraos de que no queda cortado.</div>
-  </div>
-
-  <!-- DEMO DAY -->
-  <div class="sec-header" style="border-color:var(--gold);margin-bottom:1rem">
-    <span class="sec-num" style="color:var(--gold)">→</span>
-    <div><span class="sec-title">El Demo Day</span><span class="sec-sub">Dos sesiones · todos los equipos presentan ante el jurado externo</span></div>
-  </div>
-
-  <div style="background:#1a1a1a;border-radius:var(--r);padding:1.25rem;border:1px solid rgba(192,139,0,.3);margin-bottom:1rem">
-    <p style="font-size:.875rem;color:#ccc;line-height:1.7;margin-bottom:1rem">El Demo Day se celebra en dos sesiones para que todos los equipos puedan presentar. El jurado externo verá todas las presentaciones y al final de la segunda sesión anunciará el ganador. Mientras no es vuestro turno, sois público — escuchad con respeto y aprended de cómo lo hacen los demás equipos.</p>
-    <div style="display:grid;gap:.5rem">
-      <div style="background:#111;border-radius:6px;padding:.75rem 1rem;display:flex;gap:.75rem;align-items:flex-start">
-        <div style="font-family:var(--fh);font-weight:800;font-size:.75rem;color:var(--gold);min-width:60px;padding-top:.05rem">Sesión 1</div>
-        <div style="font-size:.8rem;color:#bbb;line-height:1.5">Presentan la mitad de los equipos. El jurado escucha, toma notas y puede hacer preguntas breves al acabar cada presentación.</div>
+    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08)">
+      <div style="background:var(--gold);padding:.6rem 1rem">
+        <div style="font-family:var(--fh);font-weight:800;font-size:.9rem;color:#fff">4º AB</div>
       </div>
-      <div style="background:#111;border-radius:6px;padding:.75rem 1rem;display:flex;gap:.75rem;align-items:flex-start">
-        <div style="font-family:var(--fh);font-weight:800;font-size:.75rem;color:var(--gold);min-width:60px;padding-top:.05rem">Sesión 2</div>
-        <div style="font-size:.8rem;color:#bbb;line-height:1.5">Presentan el resto de los equipos. Al terminar la última presentación, el jurado delibera y anuncia el ganador.</div>
+      <div style="padding:.75rem 1rem">
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">1</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Isabel Gutiérrez Criado · Julia Cuesta · Nayara Breide Lirio</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">2</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Carlos Mendoza · Martín Mayordomo · Mario del Campo</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">3</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Mateo Somoza Alonso · Marcos Blázquez Jacobo · Guillermo Cidoncha Boró</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">4</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Enrique Manzanares Cos · Pablo Rafael López Rubio · Diego Prados Casasús · Gonzalo Castilla Medina</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">5</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Diego Ucha Martínez · Félix Sanz Corino</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">6</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Paula Martínez-Cava González · Margarita Álvarez Carvajal · Leonor Ruesga Aparicio</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">7</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Alejandra González López · Ágata Pérez Solera · Paula Fernández Galan</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">8</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Nicolás Romero Catalán</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">9</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Zahir Breide Lirio · Rahyan Breide Lirio · Marc Cavallé Seseña · Álvaro De Miguel Cadilla</div>
+        </div>
       </div>
     </div>
+
+    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08)">
+      <div style="background:var(--gold);padding:.6rem 1rem">
+        <div style="font-family:var(--fh);font-weight:800;font-size:.9rem;color:#fff">4º E</div>
+      </div>
+      <div style="padding:.75rem 1rem">
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">1</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Jaime Comas · Marco Acebes Borreguero · Diego Encinar</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">2</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Marcos Roldán Gómez · Javier Palomo Sánchez</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">3</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Ignacio Zaldúa Buttarro · Carlos Yonte Redondo · Beltrán Camblor Díaz</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">4</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">María Redondo Serena · Ana Hernández · Paula Gómez González</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">5</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Rodrigo García · Jorge Muñoz González · Ignacio Maza</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">6</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Jimena Mota Archilla · Claudia Del Cura Ulloa · Laura Valencia Martín · Isabela Mota Di Risio</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">7</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Nerea Cortijo · Sofía Roales-Nieto González · Jimena Vera Domínguez Borrega · D. Benedito Fernández-Miranda</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">8</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Daniel Guidolin Carrasco · Pablo Rojo Vilches · Nicolás Calvarro Vicente</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;">
+          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">9</span>
+          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Guillermo Fernández · Bruno Vacas García · Juan Sánchez Díaz</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="bloque b-warn" style="margin-bottom:2rem">
-    <div class="bloque-head">⚡ El día de vuestra presentación</div>
-    <div class="bloque-item">Llegad con todo listo. No es el momento de hacer cambios de última hora.</div>
-    <div class="bloque-item">Si algo falla, no os disculpéis ni os desesperéis. Activad el Plan B con calma y seguid adelante. El jurado valora cómo reaccionáis a los imprevistos.</div>
-    <div class="bloque-item">En las preguntas, respondéis con lo que sabéis. Si no sabéis algo, decidlo con honestidad — es mucho mejor que inventarse una respuesta.</div>
-  </div>
-
-  <!-- CONSEJOS PITCH -->
-  <div class="sec-header" style="border-color:var(--gold);margin-bottom:1rem">
-    <span class="sec-num" style="color:var(--gold)">→</span>
-    <div><span class="sec-title">Consejos para el pitch</span><span class="sec-sub">Cosas que marcan la diferencia</span></div>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:2rem">
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Empezad fuerte</div>
-      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">La primera frase tiene que enganchar. Contad el problema desde la perspectiva de la persona real que lo sufre, no como un dato abstracto.</div>
-    </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">No leáis</div>
-      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Mirad al jurado, no a la pantalla. Conocéis el proyecto mejor que nadie — no hace falta leer lo que ya sabéis.</div>
-    </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Mostrad, no contéis</div>
-      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">En la demo, no digáis "esto podría hacer X". Haced X. El jurado quiere ver, no imaginar.</div>
-    </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Honestidad sobre límites</div>
-      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Si la IA alucinó, si algo no funciona del todo — decidlo. Un pitch honesto vale más que uno que exagera lo que no existe.</div>
-    </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Repartid el protagonismo</div>
-      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Que hable más de uno. El jurado valora que sea un trabajo de equipo real, no que una persona cargue con todo.</div>
-    </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:1rem;border-left:3px solid var(--gold)">
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white);margin-bottom:.4rem">Sin prisas</div>
-      <div style="font-size:.78rem;color:var(--mid);line-height:1.5">Hablad despacio y con pausa. Si os pasáis de tiempo, recortad — nunca aceleréis atropellando. Mejor menos cosas bien contadas.</div>
-    </div>
-  </div>
-
-  <div class="sidebox sb-gold">
-    <div class="sidebox-bar"></div>
-    <div class="sidebox-body">
-      <div class="sidebox-label">💡 Recordad</div>
-      <div class="sidebox-item">Este reto no tiene entregables. El único objetivo es presentar bien lo que ya tenéis.</div>
-      <div class="sidebox-item">El jurado va a ver el póster, el vídeo y la demo. Esas tres piezas son todo lo que cuenta.</div>
-      <div class="sidebox-item">El trabajo ya está hecho. Ahora solo hay que mostrarlo con confianza.</div>
-    </div>
+  <div class="entregable-final">
+    <div class="entregable-final-title">📥 Entrega del Reto 4</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>La única entrega de este reto es la <strong style="color:var(--white)">reflexión crítica</strong>. Se entrega antes del Demo Day.</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>Incluye: qué salió bien, qué no funcionó como esperabais, qué cambiaríais con más tiempo y qué aprendisteis sobre la IA que no sabíais al empezar.</div>
+    <div class="entregable-item"><span class="entregable-num">→</span>Nombre del archivo: <strong style="color:var(--white)">R4_NombreDelEquipo</strong>. Entregad por Teams antes de la sesión del Demo Day.</div>
   </div>
 
 </section>
@@ -1362,30 +1583,107 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
 <section class="tab-panel" id="tab-7">
   <div class="sec-header mag" style="margin-top:2rem;margin-bottom:1.25rem">
     <span class="sec-num">06</span>
-    <div><span class="sec-title">¿Cómo se evalúa?</span><span class="sec-sub">Con esto puntúa el jurado — estudiadla antes de presentar</span></div>
+    <div><span class="sec-title">¿Cómo se evalúa?</span><span class="sec-sub">La nota es sobre 10 — aquí está todo lo que cuenta</span></div>
   </div>
-  <p class="body-text">La puntuación final es la media ponderada de los seis criterios. El equipo con mayor puntuación gana.</p>
-  <table class="rubric-table">
-    <thead><tr><th>Criterio</th><th>0 pts</th><th>4 pts</th><th>7 pts</th><th class="gold-col">10 pts</th><th>Peso</th></tr></thead>
+
+  <p class="body-text" style="margin-bottom:1.5rem">La nota final suma los puntos de los cinco entregables. El máximo es 10. Cada criterio indica exactamente qué tiene que cumplir para conseguir los puntos.</p>
+
+  <table class="rubric-table" style="margin-bottom:1.5rem">
+    <thead>
+      <tr><th style="width:20%">Entregable</th><th style="width:28%">Criterio</th><th>Para conseguir los puntos…</th><th style="width:76px;text-align:center">Pts</th></tr>
+    </thead>
     <tbody>
-      <tr><td>Colectivo e impacto social</td><td>Sin colectivo</td><td>Colectivo vago</td><td>Concreto y justificado</td><td class="gold-col">Impacto real y medible</td><td class="peso">15%</td></tr>
-      <tr><td>Solución con IA</td><td>La IA no aporta</td><td>Uso superficial</td><td>Resuelve algo clave</td><td class="gold-col">Sin IA no existiría</td><td class="peso">20%</td></tr>
-      <tr><td>Prototipo funcional</td><td>No funciona</td><td>Parcialmente</td><td>Funciona y cumple</td><td class="gold-col">Sólido y bien ejecutado</td><td class="peso">20%</td></tr>
-      <tr><td>Herramienta comunicación</td><td>Sin coherencia</td><td>Básica</td><td>Bien ejecutada</td><td class="gold-col">Sorprende, se recuerda</td><td class="peso">20%</td></tr>
-      <tr><td>Pitch ante el jurado</td><td>Confuso</td><td>A medias</td><td>Claro y con demo</td><td class="gold-col">Engancha desde el inicio</td><td class="peso">15%</td></tr>
-      <tr><td>Reflexión crítica</td><td>Sin análisis</td><td>Superficial</td><td>Analizan qué falló</td><td class="gold-col">Mejoras concretas y reales</td><td class="peso">10%</td></tr>
-      <tr class="rubric-total"><td colspan="5">Puntuación total — media ponderada</td><td class="peso">100%</td></tr>
+
+      <!-- PROTOTIPO -->
+      <tr>
+        <td rowspan="3" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--cyan)">🤖 Prototipo</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">4 pts</div></td>
+        <td><strong>Funciona en vivo</strong></td>
+        <td>Se demuestra en tiempo real ante el jurado sin fallos críticos. No es una captura ni un vídeo grabado — se ejecuta en directo.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--cyan);font-weight:700">1,5</td>
+      </tr>
+      <tr>
+        <td><strong>La IA es necesaria</strong></td>
+        <td>La IA realiza una función que sin ella sería imposible o inviable. El equipo sabe explicar en una frase qué hace exactamente la IA en su solución.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--cyan);font-weight:700">1,5</td>
+      </tr>
+      <tr>
+        <td><strong>Resuelve algo concreto</strong></td>
+        <td>La solución aborda un problema específico del colectivo elegido. No intenta resolverlo todo — se centra en algo real y acotado.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--cyan);font-weight:700">1</td>
+      </tr>
+
+      <!-- VÍDEO -->
+      <tr>
+        <td rowspan="2" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--lime)">🎬 Vídeo</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">1,5 pts</div></td>
+        <td><strong>Guion y estructura</strong></td>
+        <td>Dura entre 60 y 90 segundos. Sigue la estructura: problema → solución → llamada a la acción. Se entiende sin que nadie lo explique antes de reproducirlo.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--lime);font-weight:700">0,75</td>
+      </tr>
+      <tr>
+        <td><strong>Producción con IA</strong></td>
+        <td>Se identifican claramente elementos generados con IA: voz sintética, imágenes generadas, subtítulos automáticos o edición asistida. No es una grabación de pantalla sin editar.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--lime);font-weight:700">0,75</td>
+      </tr>
+
+      <!-- PÓSTER -->
+      <tr>
+        <td rowspan="2" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--lime)">🖼 Póster</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">1 pt</div></td>
+        <td><strong>Mensaje visual claro</strong></td>
+        <td>El titular se lee a distancia. En menos de 5 segundos se entiende a quién va dirigido y qué problema resuelve. No hay texto innecesario.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--lime);font-weight:700">0,5</td>
+      </tr>
+      <tr>
+        <td><strong>Imagen generada con IA</strong></td>
+        <td>La imagen principal está generada con una herramienta de IA (Canva Magic Media, Firefly, ImageFX…). Se identifica claramente que no es una foto de stock ni una imagen manual.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--lime);font-weight:700">0,5</td>
+      </tr>
+
+      <!-- PRESENTACIÓN -->
+      <tr>
+        <td rowspan="2" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--gold)">🎤 Presentación</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">1,5 pts</div></td>
+        <td><strong>Pitch y demo</strong></td>
+        <td>En 7 minutos: explican el problema, demuestran la solución en vivo y muestran el vídeo y el póster. Todo el equipo habla — no presenta solo una persona.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--gold);font-weight:700">1</td>
+      </tr>
+      <tr>
+        <td><strong>Reflexión crítica</strong></td>
+        <td>El equipo identifica qué no funcionó y qué cambiaría. No venden más de lo que tienen — los límites del proyecto se explican con honestidad.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--gold);font-weight:700">0,5</td>
+      </tr>
+
+      <!-- FICHAS -->
+      <tr>
+        <td rowspan="2" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--mag)">📋 Fichas</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">2 pts</div></td>
+        <td><strong>Completas y entregadas</strong></td>
+        <td>Las tres fichas (R1, R2, R3) están entregadas con todos los campos rellenos: objetivos, capturas con explicación propia y prompts exactos utilizados.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--mag);font-weight:700">1</td>
+      </tr>
+      <tr>
+        <td><strong>Proceso real documentado</strong></td>
+        <td>Las fichas incluyen errores, alucinaciones de la IA o decisiones de cambio — no solo los éxitos. Se nota que se rellenaron durante el proceso, no en el último momento.</td>
+        <td style="text-align:center;font-family:var(--fm);color:var(--mag);font-weight:700">1</td>
+      </tr>
+
+      <!-- TOTAL -->
+      <tr style="background:#1a1a1a">
+        <td colspan="3" style="font-family:var(--fh);font-weight:800;color:var(--white)">Total</td>
+        <td style="text-align:center;font-family:var(--fh);font-weight:900;font-size:1.2rem;color:var(--white)">10</td>
+      </tr>
+
     </tbody>
   </table>
+
   <div class="sidebox sb-gold">
     <div class="sidebox-bar"></div>
     <div class="sidebox-body">
-      <div class="sidebox-label">🏆 Lo que busca el jurado en el proyecto ganador</div>
-      <div class="sidebox-item">Proyectos que entiendan para qué sirve la IA — y dónde falla.</div>
-      <div class="sidebox-item">Un pitch honesto sobre los límites vale más que uno que vende lo que no existe.</div>
-      <div class="sidebox-item">La herramienta de comunicación se valora igual que la solución técnica.</div>
+      <div class="sidebox-label">💡 Lo que marca la diferencia entre un 7 y un 10</div>
+      <div class="sidebox-item">El prototipo funciona en vivo sin ayuda — no hay que disculparse por nada.</div>
+      <div class="sidebox-item">El vídeo se entiende solo, sin que el equipo lo explique antes de reproducirlo.</div>
+      <div class="sidebox-item">El pitch es honesto: dicen qué no llegaron a hacer y por qué. El jurado lo valora más que vender lo que no existe.</div>
+      <div class="sidebox-item">Las fichas tienen evidencia real del proceso — no son un resumen escrito al último momento.</div>
     </div>
   </div>
+
 </section>
 
 
