@@ -19,13 +19,13 @@
   --r:10px; --max:900px;
   --fh:'Syne',sans-serif; --fb:'DM Sans',sans-serif; --fm:'DM Mono',monospace;
 }
-html{scroll-behavior:smooth;overflow-x:hidden}
+html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100vh;overflow-x:hidden}
 
 /* ── LANDING ── */
 .landing{
   min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-  padding:3rem 4vw;position:relative;overflow:hidden;
+  padding:3rem 1.5rem;position:relative;overflow:hidden;
   background:var(--ink);
 }
 .landing::before{
@@ -37,7 +37,7 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
   pointer-events:none;
 }
 .landing-accent{position:absolute;top:0;left:0;width:6px;height:100%;background:var(--mag)}
-.landing-inner{width:100%;position:relative;z-index:1}
+.landing-inner{max-width:var(--max);margin:0 auto;width:100%;position:relative;z-index:1}
 
 .landing-eyebrow{
   font-family:var(--fm);font-size:.68rem;letter-spacing:.18em;
@@ -1101,201 +1101,20 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
 
 <section class="tab-panel" id="tab-4">
   <div class="week-banner wb-lime" data-label="S3">
-    <div class="week-num">Reto 3 · ~3 sesiones</div>
-    <div class="week-title">Comunicar</div>
-    <div class="week-sub">Vídeo promocional + póster publicitario producidos con IA</div>
+    <div class="week-num">Reto 3 · ~3 sesiones</div><div class="week-title">Comunicar</div>
+    <div class="week-sub">Herramienta creativa para que el mundo conozca vuestra solución</div>
   </div>
-  <div class="semana-progress">
-    <span class="sp-label">Retos</span>
-    <span class="sp-dot c"></span><span class="sp-dot c"></span><span class="sp-dot active"></span><span class="sp-dot"></span>
-  </div>
-
-  <div class="aviso-p20">
-    <span class="aviso-icon">✅</span>
-    <div class="aviso-text"><strong>Tenéis un prototipo que funciona.</strong> Ahora tenéis que lograr que alguien quiera usarlo. Vuestros dos entregables son un <strong>vídeo promocional</strong> y un <strong>póster publicitario</strong>, ambos producidos con IA. No se toca el prototipo — toda la energía va a comunicarlo.</div>
-  </div>
-
-  <!-- QUÉS SON LOS DOS ENTREGABLES -->
-  <div class="sec-header" style="border-color:var(--lime);margin-top:1.5rem;margin-bottom:1rem">
-    <span class="sec-num" style="color:var(--lime)">→</span>
-    <div><span class="sec-title">Vuestros dos entregables</span><span class="sec-sub">Uno no sustituye al otro — los dos son obligatorios</span></div>
-  </div>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem">
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:1.25rem;border-top:3px solid var(--lime)">
-      <div style="font-family:var(--fh);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:.5rem">🎬 Vídeo promocional</div>
-      <div style="font-size:.8rem;color:var(--mid);line-height:1.6;margin-bottom:.75rem">Entre 60 y 90 segundos. Explica el problema, presenta la solución y termina con una llamada a la acción. Producido con IA: guion, voz en off, imágenes o animaciones.</div>
-      <div style="font-family:var(--fm);font-size:.7rem;color:var(--lime);letter-spacing:.04em">Formato: .mp4 o enlace a Canva/Capcut</div>
+  <div class="semana-progress"><span class="sp-label">Retos</span><span class="sp-dot c"></span><span class="sp-dot c"></span><span class="sp-dot active"></span><span class="sp-dot"></span></div>
+  <div class="coming-soon" data-label="S3">
+    <span class="cs-icon">📣</span><div class="cs-title">Este reto se desarrolla próximamente</div>
+    <div class="cs-sub">Tenéis una solución que funciona. Ahora tenéis que hacer que alguien quiera conocerla.</div>
+    <div class="cs-fases">
+      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--lime)">Fase 1</div><div class="cs-fase-title">Elegir formato creativo</div><div class="cs-fase-desc">Vídeo, web, podcast, revista, campaña… El que mejor cuente vuestra historia.</div></div>
+      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--lime)">Fase 2</div><div class="cs-fase-title">Producción con IA</div><div class="cs-fase-desc">Textos, voces, imágenes, diseños — todo producido con las herramientas que ya conocéis.</div></div>
+      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--lime)">Fase 3</div><div class="cs-fase-title">Versión final</div><div class="cs-fase-desc">Producto de comunicación cerrado y listo para el Demo Day.</div></div>
     </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:1.25rem;border-top:3px solid var(--lime)">
-      <div style="font-family:var(--fh);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:.5rem">🖼 Póster publicitario</div>
-      <div style="font-size:.8rem;color:var(--mid);line-height:1.6;margin-bottom:.75rem">Formato A3 o equivalente digital. Un solo golpe visual que comunique quiénes sois, a quién ayudáis y por qué vuestra solución importa. Imagen generada con IA, texto redactado con IA.</div>
-      <div style="font-family:var(--fm);font-size:.7rem;color:var(--lime);letter-spacing:.04em">Formato: .pdf o .png de alta resolución</div>
-    </div>
+    <span class="cs-badge">Contenido disponible próximamente</span>
   </div>
-
-  <!-- FASE 1 -->
-  <div class="fase fase-f1 open">
-    <div class="fase-header" onclick="toggleFase(this)">
-      <div><div class="fase-tag">Fase 1</div><div class="fase-title">Planificación y guion</div><div class="fase-subtitle">Decidir el mensaje antes de producir nada</div></div>
-      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">1</span>
-    </div>
-    <div class="fase-body"><div class="fase-content">
-      <p class="body-text">Antes de abrir ninguna herramienta, tenéis que tener claro qué queréis decir. Una mala decisión de mensaje aquí se nota en todo lo demás.</p>
-      <div class="bloque b-info">
-        <div class="bloque-head">📋 Las tres preguntas que tenéis que responder primero</div>
-        <div class="bloque-item"><strong style="color:var(--white)">¿Cuál es el problema?</strong> En una frase, sin tecnicismos. Como si se lo explicarais a alguien que no sabe nada del tema.</div>
-        <div class="bloque-item"><strong style="color:var(--white)">¿Qué hace vuestra solución?</strong> En dos frases: qué hace y por qué la IA es necesaria para hacerlo.</div>
-        <div class="bloque-item"><strong style="color:var(--white)">¿A quién va dirigido?</strong> No es "a todo el mundo" — definid un destinatario concreto: quién lo ve, quién lo comparte, quién actúa.</div>
-      </div>
-      <div class="bloque b-pc">
-        <div class="bloque-head">💻 Guion del vídeo con IA</div>
-        <div class="bloque-item">Usad Claude o ChatGPT para generar el guion. Prompt de partida: <em style="color:#1a3300">"Escribe un guion de 75 segundos para un vídeo promocional sobre [nombre del proyecto]. El proyecto ayuda a [colectivo] con el problema de [problema]. La solución es [descripción breve]. El tono debe ser cercano y motivador. Incluye: gancho inicial (10s), problema (15s), solución (25s), demostración (15s) y llamada a la acción (10s)."</em></div>
-        <div class="bloque-item">Revisad el guion generado en equipo. Cambiad lo que suene artificial o que no refleje bien vuestro proyecto. La IA propone, vosotros decidís.</div>
-      </div>
-      <div class="bloque b-pc">
-        <div class="bloque-head">💻 Concepto del póster con IA</div>
-        <div class="bloque-item">Antes de generar la imagen, redactad el mensaje principal del póster: titular, subtítulo y llamada a la acción. Usad la IA para proponer variantes: <em style="color:#1a3300">"Propón 5 titulares diferentes para un póster sobre [proyecto]. Deben ser impactantes, en menos de 8 palabras, y dirigidos a [destinatario]."</em></div>
-        <div class="bloque-item">Elegid el que más os convenza y acordad el estilo visual antes de empezar a producir.</div>
-      </div>
-      <div class="bloque b-entrega">
-        <div class="bloque-head">🏁 Qué anotáis en la ficha tras esta sesión</div>
-        <div class="bloque-item">Las tres respuestas (problema, solución, destinatario) escritas en vuestras propias palabras.</div>
-        <div class="bloque-item">El guion del vídeo — versión IA + los cambios que hicisteis y por qué.</div>
-        <div class="bloque-item">El titular del póster elegido y las alternativas que descartasteis.</div>
-      </div>
-    </div></div>
-  </div>
-
-  <!-- FASE 2 -->
-  <div class="fase fase-f2">
-    <div class="fase-header" onclick="toggleFase(this)">
-      <div><div class="fase-tag">Fase 2</div><div class="fase-title">Producción</div><div class="fase-subtitle">Vídeo y póster con las herramientas de IA</div></div>
-      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">2</span>
-    </div>
-    <div class="fase-body"><div class="fase-content">
-
-      <div class="sec-header" style="border-color:var(--lime);margin-bottom:.75rem">
-        <span class="sec-num" style="color:var(--lime);font-size:.8rem">▸</span>
-        <div><span class="sec-title" style="font-size:.95rem">Producción del vídeo</span></div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.6rem;margin-bottom:1rem">
-        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🎞 Canva (vídeo)</div>
-          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Plantillas de vídeo, música libre, texto animado. La opción más completa para empezar sin experiencia.</div>
-          <a href="https://canva.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">canva.com →</a>
-          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Gratuito con cuenta escolar</span>
-        </div>
-        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">✂️ CapCut</div>
-          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Editor de vídeo con IA: subtítulos automáticos, voz sintética, eliminación de fondo. Ideal si tenéis capturas de pantalla del prototipo.</div>
-          <a href="https://capcut.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">capcut.com →</a>
-          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Gratuito en web</span>
-        </div>
-        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🔊 ElevenLabs</div>
-          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Genera voz en off a partir del guion. Pegáis el texto y descargáis el audio. Combinadlo con Canva o CapCut.</div>
-          <a href="https://elevenlabs.io" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">elevenlabs.io →</a>
-          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Gratuito (límite de caracteres)</span>
-        </div>
-        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🖼 Sora / Runway</div>
-          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Generadores de vídeo por IA a partir de texto. Útil para secuencias visuales abstractas o ilustrativas del problema.</div>
-          <a href="https://runwayml.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">runwayml.com →</a>
-          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Plan gratuito limitado</span>
-        </div>
-      </div>
-
-      <div class="sec-header" style="border-color:var(--lime);margin-bottom:.75rem;margin-top:1.25rem">
-        <span class="sec-num" style="color:var(--lime);font-size:.8rem">▸</span>
-        <div><span class="sec-title" style="font-size:.95rem">Producción del póster</span></div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.6rem;margin-bottom:1rem">
-        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🎨 Canva (póster)</div>
-          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Plantillas de póster A3, generador de imágenes con IA integrado (Magic Media), paletas automáticas. La opción recomendada.</div>
-          <a href="https://canva.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">canva.com →</a>
-        </div>
-        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">🤖 Adobe Firefly</div>
-          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Generador de imágenes con mucho control sobre el estilo. Ideal para imágenes realistas o ilustrativas del colectivo.</div>
-          <a href="https://firefly.adobe.com" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">firefly.adobe.com →</a>
-          <span style="font-size:.68rem;color:var(--mid);margin-left:.4rem">Gratuito con cuenta Adobe</span>
-        </div>
-        <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:2px solid var(--lime)">
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);margin-bottom:.3rem">✨ DALL·E / ImageFX</div>
-          <div style="font-size:.75rem;color:var(--mid);line-height:1.5;margin-bottom:.4rem">Generadores de imagen por texto. ImageFX (Google) es gratuito sin límite. DALL·E está integrado en ChatGPT Plus.</div>
-          <a href="https://labs.google/fx/tools/image-fx" target="_blank" style="font-family:var(--fm);font-size:.65rem;color:var(--lime);text-decoration:none;letter-spacing:.05em">ImageFX →</a>
-        </div>
-      </div>
-
-      <div class="sidebox sb-lime">
-        <div class="sidebox-bar"></div>
-        <div class="sidebox-body">
-          <div class="sidebox-label">💡 Prompt para generar la imagen del póster</div>
-          <div class="sidebox-item">Estructura que funciona: <em style="color:#1a3300">"[Estilo visual: fotografía realista / ilustración digital / diseño gráfico minimalista] de [descripción de la escena o sujeto principal], relacionado con [colectivo], tono [emotivo/esperanzador/urgente], colores [paleta de colores], fondo [descripción del fondo]."</em></div>
-          <div class="sidebox-item">Anotad el prompt exacto que usasteis — va en la ficha. Si generasteis varias versiones, guardad las que descartasteis y explicad por qué elegisteis la final.</div>
-        </div>
-      </div>
-
-      <div class="bloque b-entrega" style="margin-top:1rem">
-        <div class="bloque-head">🏁 Qué anotáis en la ficha tras esta sesión</div>
-        <div class="bloque-item">Los prompts exactos que usasteis para generar la voz, las imágenes o los elementos visuales.</div>
-        <div class="bloque-item">2 capturas mínimo del proceso de producción — una del vídeo y una del póster en elaboración.</div>
-        <div class="bloque-item">Qué generó la IA y qué editasteis vosotros manualmente. La autoría es compartida — sé honesto.</div>
-      </div>
-    </div></div>
-  </div>
-
-  <!-- FASE 3 -->
-  <div class="fase fase-f3">
-    <div class="fase-header" onclick="toggleFase(this)">
-      <div><div class="fase-tag">Fase 3</div><div class="fase-title">Revisión y cierre</div><div class="fase-subtitle">Pulir, validar y dejar todo listo para el Demo Day</div></div>
-      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">3</span>
-    </div>
-    <div class="fase-body"><div class="fase-content">
-      <div class="bloque b-pc">
-        <div class="bloque-head">💻 Checklist antes de dar el reto por cerrado</div>
-        <div class="bloque-item">🎬 <strong style="color:var(--white)">Vídeo:</strong> ¿dura entre 60 y 90 segundos? ¿Se escucha bien la voz? ¿Se lee el texto? Reproducidlo en el proyector del aula para comprobar calidad de imagen y sonido.</div>
-        <div class="bloque-item">🖼 <strong style="color:var(--white)">Póster:</strong> ¿se lee el titular a distancia? ¿Aparece el nombre del proyecto y del equipo? ¿Tiene el formato correcto (A3 / alta resolución)?</div>
-        <div class="bloque-item">📋 <strong style="color:var(--white)">Coherencia:</strong> ¿el vídeo y el póster cuentan lo mismo? ¿Tienen un estilo visual consistente entre sí?</div>
-        <div class="bloque-item">📁 <strong style="color:var(--white)">Archivos:</strong> ¿tenéis el .mp4 (o enlace) y el .pdf/.png listos para entregar? Nombradlos ya: <strong style="color:var(--lime)">R3_NombreDelEquipo_video</strong> y <strong style="color:var(--lime)">R3_NombreDelEquipo_poster</strong>.</div>
-      </div>
-      <div class="bloque b-warn">
-        <div class="bloque-head">⚡ Para el Demo Day</div>
-        <div class="bloque-item">El vídeo se reproduce durante la presentación — aseguraos de que funciona sin conexión o tened el enlace preparado.</div>
-        <div class="bloque-item">El póster se puede imprimir o proyectar. El/la profesor/a os dirá qué formato usar el día de la presentación.</div>
-      </div>
-      <div class="bloque b-entrega">
-        <div class="bloque-head">🏁 Qué anotáis en la ficha tras esta sesión</div>
-        <div class="bloque-item">Una frase por entregable: ¿estáis satisfechos con el resultado? ¿Qué cambiaríais si tuvierais más tiempo?</div>
-        <div class="bloque-item">Una captura del póster final y el enlace o nombre del archivo del vídeo final.</div>
-      </div>
-      <div class="sidebox sb-lime" style="margin-top:.75rem">
-        <div class="sidebox-bar"></div>
-        <div class="sidebox-body">
-          <div class="sidebox-label">✅ Al terminar este reto tendréis</div>
-          <div class="sidebox-item">Un vídeo promocional de 60-90 segundos listo para el Demo Day.</div>
-          <div class="sidebox-item">Un póster publicitario en alta resolución.</div>
-          <div class="sidebox-item">La ficha del Reto 3 completa con prompts, capturas y reflexión.</div>
-          <div class="sidebox-item">Los archivos nombrados y listos para entregar.</div>
-        </div>
-      </div>
-    </div></div>
-  </div>
-
-  <!-- ENTREGA FINAL -->
-  <div class="entregable-final">
-    <div class="entregable-final-title">📥 Entrega del Reto 3</div>
-    <div class="entregable-item"><span class="entregable-num">→</span>La entrega tiene <strong style="color:var(--white)">tres partes obligatorias</strong>. Sin las tres, la entrega no se acepta.</div>
-    <div class="entregable-item"><span class="entregable-num">1</span><strong style="color:var(--white)">Vídeo promocional</strong> — archivo .mp4 o enlace a Canva/CapCut. Duración entre 60 y 90 segundos. Tiene que poder reproducirse sin conexión el día del Demo Day.</div>
-    <div class="entregable-item"><span class="entregable-num">2</span><strong style="color:var(--white)">Póster publicitario</strong> — archivo .pdf o .png en alta resolución (mínimo A3 o 2480×3508 px). Tiene que poder proyectarse o imprimirse.</div>
-    <div class="entregable-item"><span class="entregable-num">3</span><strong style="color:var(--white)">Ficha del Reto 3</strong> — descargadla en la pestaña <button onclick="switchTab(6)" style="background:none;border:none;color:var(--mag);font-family:var(--fb);font-size:.875rem;font-weight:700;cursor:pointer;padding:0;text-decoration:underline">Docs →</button>. Incluye: guion del vídeo (versión IA + cambios), prompts usados para imágenes, capturas del proceso y reflexión final.</div>
-    <div class="entregable-item"><span class="entregable-num">→</span>Nombrad los archivos <strong style="color:var(--white)">R3_NombreDelEquipo_video</strong> y <strong style="color:var(--white)">R3_NombreDelEquipo_poster</strong> y entregadlos junto a la ficha por Teams. Una entrega por equipo.</div>
-  </div>
-
 </section>
 
 <section class="tab-panel" id="tab-5">
@@ -1308,216 +1127,17 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
     <span class="sp-label">Retos</span>
     <span class="sp-dot c"></span><span class="sp-dot c"></span><span class="sp-dot c"></span><span class="sp-dot active"></span>
   </div>
-
-  <div class="aviso-p20" style="border-color:var(--gold);background:rgba(192,139,0,.08)">
-    <span class="aviso-icon">🏆</span>
-    <div class="aviso-text"><strong>Este reto no construye nada nuevo.</strong> Ya tenéis el prototipo y los materiales de comunicación. Todo el esfuerzo va a preparar la mejor presentación posible. El jurado externo verá vuestro trabajo por primera vez — el pitch tiene que ser autoexplicativo.</div>
-  </div>
-
-  <!-- ESTRUCTURA DEL PITCH -->
-  <div class="sec-header" style="border-color:var(--gold);margin-top:1.5rem;margin-bottom:1rem">
-    <span class="sec-num" style="color:var(--gold)">→</span>
-    <div><span class="sec-title">Estructura del pitch</span><span class="sec-sub">7 minutos por equipo — esta es la distribución exacta</span></div>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem;margin-bottom:1.5rem">
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
-      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">1 min</div>
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">El problema</div>
-      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">¿A quién afecta? ¿Por qué importa ahora?</div>
+  <div class="coming-soon" data-label="S4">
+    <span class="cs-icon">🏆</span>
+    <div class="cs-title">Este reto se desarrolla próximamente</div>
+    <div class="cs-sub">Ya no construís nada nuevo. Todo el esfuerzo va a preparar la mejor presentación posible.</div>
+    <div class="cs-fases">
+      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--gold)">Fase 1</div><div class="cs-fase-title">Ensayo general</div><div class="cs-fase-desc">Pitch cronometrado completo. Reflexión crítica escrita. Feedback real del profesor.</div></div>
+      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--gold)">Fase 2</div><div class="cs-fase-title">Ajustes y jurado simulado</div><div class="cs-fase-desc">Aplicáis el feedback. La clase actúa como jurado. Plan B para la demo.</div></div>
+      <div class="cs-fase"><div class="cs-fase-tag" style="color:var(--gold)">Fase 3</div><div class="cs-fase-title">🎤 Demo Day</div><div class="cs-fase-desc">7 minutos por equipo ante el jurado externo. Se anuncia el ganador.</div></div>
     </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
-      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">2 min</div>
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">Póster + vídeo</div>
-      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">Primero el póster, luego se reproduce el vídeo.</div>
-    </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
-      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">2 min</div>
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">Demo en vivo</div>
-      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">La solución funcionando en tiempo real.</div>
-    </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
-      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">1 min</div>
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">Aprendizajes</div>
-      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">Qué funcionó, qué no y qué cambiaríais.</div>
-    </div>
-    <div style="background:#1a1a1a;border-radius:var(--r);padding:.9rem;border-top:3px solid var(--gold);text-align:center">
-      <div style="font-family:var(--fm);font-size:.65rem;color:var(--gold);letter-spacing:.06em;margin-bottom:.3rem">1 min</div>
-      <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--white)">Preguntas</div>
-      <div style="font-size:.72rem;color:var(--mid);margin-top:.3rem;line-height:1.4">El evaluador puede preguntar a cualquier miembro.</div>
-    </div>
+    <span class="cs-badge">Contenido disponible próximamente</span>
   </div>
-
-  <!-- FASE 1 -->
-  <div class="fase fase-f1 open">
-    <div class="fase-header" onclick="toggleFase(this)">
-      <div><div class="fase-tag">Fase 1</div><div class="fase-title">Preparación</div><div class="fase-subtitle">Reflexión crítica y últimos ajustes técnicos</div></div>
-      <span class="fase-tiempo">~1-2 sesiones</span><span class="fase-chevron">▼</span><span class="fase-num">1</span>
-    </div>
-    <div class="fase-body"><div class="fase-content">
-      <div class="bloque b-pc">
-        <div class="bloque-head">💻 Qué hacer en esta fase</div>
-        <div class="bloque-item">Escribid la <strong style="color:var(--white)">reflexión crítica</strong> (una por equipo, todos contribuyen): qué salió bien, qué no funcionó como esperabais y qué cambiaríais si tuvierais más tiempo.</div>
-        <div class="bloque-item">Repartid quién habla en cada parte del pitch — todos los miembros tienen que hablar en algún momento.</div>
-        <div class="bloque-item">Comprobad que todo funciona en el <strong style="color:var(--white)">ordenador del aula</strong>, no en el vuestro: prototipo, vídeo y póster.</div>
-        <div class="bloque-item"><strong style="color:var(--white)">Plan B para la demo:</strong> si el prototipo no carga en vivo, ¿qué hacéis? Tened una captura de pantalla o una grabación de respaldo lista.</div>
-      </div>
-      <div class="bloque b-warn">
-        <div class="bloque-head">⚡ Lo que no se puede hacer ya</div>
-        <div class="bloque-item">Añadir funcionalidad nueva al prototipo. Rehacer el vídeo o el póster desde cero. Si algo no está listo, se presenta así y se explica honestamente — el evaluador lo valora más que improvisar.</div>
-      </div>
-      <div class="bloque b-entrega">
-        <div class="bloque-head">🏁 Al terminar esta fase</div>
-        <div class="bloque-item">Reflexión crítica escrita y entregada como <strong style="color:var(--white)">R4_NombreDelEquipo</strong> por Teams.</div>
-        <div class="bloque-item">Todo el material comprobado en el ordenador del aula. Plan B preparado.</div>
-      </div>
-    </div></div>
-  </div>
-
-  <!-- FASE 2: DEMO DAY -->
-  <div class="fase fase-f2">
-    <div class="fase-header" onclick="toggleFase(this)">
-      <div><div class="fase-tag">Fase 2</div><div class="fase-title">🎤 Demo Day</div><div class="fase-subtitle">7 minutos por equipo · Se anuncia el ganador</div></div>
-      <span class="fase-tiempo">~1 sesión</span><span class="fase-chevron">▼</span><span class="fase-num">2</span>
-    </div>
-    <div class="fase-body"><div class="fase-content">
-      <div class="bloque b-info">
-        <div class="bloque-head">📋 Cómo funciona</div>
-        <div class="bloque-item">Cada equipo presenta en orden. 7 minutos exactos — el/la profesor/a avisa cuando queda 1 minuto.</div>
-        <div class="bloque-item">El evaluador no conoce vuestro proyecto. No asumáis que sabe nada del contexto — el pitch tiene que ser autoexplicativo.</div>
-        <div class="bloque-item">Tras todas las presentaciones, el evaluador decide el ganador.</div>
-      </div>
-      <div class="bloque b-pc">
-        <div class="bloque-head">✅ Checklist antes de empezar</div>
-        <div class="bloque-item">Prototipo abierto y listo en el ordenador del aula.</div>
-        <div class="bloque-item">Vídeo cargado — sin depender de internet si es posible.</div>
-        <div class="bloque-item">Póster en pantalla o impreso según lo acordado.</div>
-        <div class="bloque-item">Plan B preparado por si algo falla en la demo.</div>
-        <div class="bloque-item">Todos los miembros saben qué parte presentan.</div>
-      </div>
-      <div class="sidebox sb-gold">
-        <div class="sidebox-bar"></div>
-        <div class="sidebox-body">
-          <div class="sidebox-label">🏆 Qué valora el evaluador</div>
-          <div class="sidebox-item">¿El problema está claro y justificado?</div>
-          <div class="sidebox-item">¿El póster y el vídeo comunican solos, sin explicación previa?</div>
-          <div class="sidebox-item">¿La IA hace algo que sin ella no sería posible?</div>
-          <div class="sidebox-item">¿El prototipo funciona en vivo?</div>
-          <div class="sidebox-item">¿El equipo sabe qué falló y por qué?</div>
-        </div>
-      </div>
-    </div></div>
-  </div>
-
-  <!-- ORDEN DE PRESENTACIONES -->
-  <div class="sec-header" style="border-color:var(--gold);margin-top:1.5rem;margin-bottom:1rem">
-    <span class="sec-num" style="color:var(--gold)">→</span>
-    <div><span class="sec-title">Orden de presentaciones</span><span class="sec-sub">Resultado del sorteo — cada clase tiene su propio orden</span></div>
-  </div>
-
-  <div style="margin-bottom:1rem">
-    <button onclick="(function(b,d){d.style.display=d.style.display==='none'?'grid':'none';b.textContent=d.style.display==='none'?'🎲 Revelar orden':'🙈 Ocultar orden'})(this,document.getElementById('sorteo-tabla'))" style="font-family:var(--fh);font-weight:700;font-size:.85rem;background:var(--gold);color:#fff;border:none;padding:.7rem 1.6rem;border-radius:99px;cursor:pointer;letter-spacing:.03em">🎲 Revelar orden de presentaciones</button>
-  </div>
-
-  <div id="sorteo-tabla" style="display:none;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
-
-    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08)">
-      <div style="background:var(--gold);padding:.6rem 1rem">
-        <div style="font-family:var(--fh);font-weight:800;font-size:.9rem;color:#fff">4º AB</div>
-      </div>
-      <div style="padding:.75rem 1rem">
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">1</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Isabel Gutiérrez Criado · Julia Cuesta · Nayara Breide Lirio</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">2</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Carlos Mendoza · Martín Mayordomo · Mario del Campo</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">3</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Mateo Somoza Alonso · Marcos Blázquez Jacobo · Guillermo Cidoncha Boró</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">4</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Enrique Manzanares Cos · Pablo Rafael López Rubio · Diego Prados Casasús · Gonzalo Castilla Medina</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">5</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Diego Ucha Martínez · Félix Sanz Corino</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">6</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Paula Martínez-Cava González · Margarita Álvarez Carvajal · Leonor Ruesga Aparicio</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">7</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Alejandra González López · Ágata Pérez Solera · Paula Fernández Galan</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">8</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Nicolás Romero Catalán</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">9</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Zahir Breide Lirio · Rahyan Breide Lirio · Marc Cavallé Seseña · Álvaro De Miguel Cadilla</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:#1a1a1a;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08)">
-      <div style="background:var(--gold);padding:.6rem 1rem">
-        <div style="font-family:var(--fh);font-weight:800;font-size:.9rem;color:#fff">4º E</div>
-      </div>
-      <div style="padding:.75rem 1rem">
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">1</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Jaime Comas · Marco Acebes Borreguero · Diego Encinar</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">2</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Marcos Roldán Gómez · Javier Palomo Sánchez</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">3</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Ignacio Zaldúa Buttarro · Carlos Yonte Redondo · Beltrán Camblor Díaz</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">4</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">María Redondo Serena · Ana Hernández · Paula Gómez González</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">5</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Rodrigo García · Jorge Muñoz González · Ignacio Maza</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">6</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Jimena Mota Archilla · Claudia Del Cura Ulloa · Laura Valencia Martín · Isabela Mota Di Risio</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">7</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Nerea Cortijo · Sofía Roales-Nieto González · Jimena Vera Domínguez Borrega · D. Benedito Fernández-Miranda</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">8</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Daniel Guidolin Carrasco · Pablo Rojo Vilches · Nicolás Calvarro Vicente</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem;padding:.45rem 0;">
-          <span style="font-family:var(--fm);font-weight:700;color:var(--gold);font-size:.8rem;min-width:1.2rem;flex-shrink:0">9</span>
-          <div style="font-family:var(--fh);font-weight:700;font-size:.82rem;color:var(--white);line-height:1.35">Guillermo Fernández · Bruno Vacas García · Juan Sánchez Díaz</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="entregable-final">
-    <div class="entregable-final-title">📥 Entrega del Reto 4</div>
-    <div class="entregable-item"><span class="entregable-num">→</span>La única entrega de este reto es la <strong style="color:var(--white)">reflexión crítica</strong>. Se entrega antes del Demo Day.</div>
-    <div class="entregable-item"><span class="entregable-num">→</span>Incluye: qué salió bien, qué no funcionó como esperabais, qué cambiaríais con más tiempo y qué aprendisteis sobre la IA que no sabíais al empezar.</div>
-    <div class="entregable-item"><span class="entregable-num">→</span>Nombre del archivo: <strong style="color:var(--white)">R4_NombreDelEquipo</strong>. Entregad por Teams antes de la sesión del Demo Day.</div>
-  </div>
-
 </section>
 
 <section class="tab-panel" id="tab-6">
@@ -1553,14 +1173,25 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
       </div>
     </div>
 
-    <div style="background:#111;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08)">
-      <div style="background:var(--lime);padding:.75rem 1rem">
-        <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.7);text-transform:uppercase;margin-bottom:.2rem">Reto 3 · Comunicar</div>
-        <div style="font-family:var(--fh);font-weight:700;font-size:.9rem;color:#fff">Documento de entrega</div>
+    <div style="background:#111;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.06);opacity:.45">
+      <div style="background:#2a2a2a;padding:.75rem 1rem">
+        <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:.2rem">Reto 3 · Comunicar</div>
+        <div style="font-family:var(--fh);font-weight:700;font-size:.9rem;color:#666">Documento de entrega</div>
       </div>
       <div style="padding:.9rem 1rem">
-        <div style="font-size:.78rem;color:#bbb;margin-bottom:.75rem;line-height:1.5">Guion del vídeo · Prompts de imágenes · Capturas del proceso · Reflexión final</div>
-        <a href="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,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" download="R3_Dossier_Comunicacion.docx" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--lime);color:#fff;font-family:var(--fh);font-size:.72rem;font-weight:700;padding:.4rem .9rem;border-radius:99px;text-decoration:none">⬇ Descargar</a>
+        <div style="font-size:.78rem;color:#555;margin-bottom:.75rem;line-height:1.5">Herramienta creativa · Formato elegido · Entregables</div>
+        <span style="display:inline-flex;align-items:center;gap:.4rem;background:#222;color:#555;font-family:var(--fh);font-size:.72rem;font-weight:700;padding:.4rem .9rem;border-radius:99px">🔒 Disponible en el Reto 3</span>
+      </div>
+    </div>
+
+    <div style="background:#111;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.06);opacity:.45">
+      <div style="background:#2a2a2a;padding:.75rem 1rem">
+        <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:.2rem">Reto 4 · Demo Day</div>
+        <div style="font-family:var(--fh);font-weight:700;font-size:.9rem;color:#666">Documento de entrega</div>
+      </div>
+      <div style="padding:.9rem 1rem">
+        <div style="font-size:.78rem;color:#555;margin-bottom:.75rem;line-height:1.5">Reflexión crítica · Pitch · Entregables finales</div>
+        <span style="display:inline-flex;align-items:center;gap:.4rem;background:#222;color:#555;font-family:var(--fh);font-size:.72rem;font-weight:700;padding:.4rem .9rem;border-radius:99px">🔒 Disponible en el Reto 4</span>
       </div>
     </div>
 
@@ -1572,107 +1203,30 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
 <section class="tab-panel" id="tab-7">
   <div class="sec-header mag" style="margin-top:2rem;margin-bottom:1.25rem">
     <span class="sec-num">06</span>
-    <div><span class="sec-title">¿Cómo se evalúa?</span><span class="sec-sub">La nota es sobre 10 — aquí está todo lo que cuenta</span></div>
+    <div><span class="sec-title">¿Cómo se evalúa?</span><span class="sec-sub">Con esto puntúa el jurado — estudiadla antes de presentar</span></div>
   </div>
-
-  <p class="body-text" style="margin-bottom:1.5rem">La nota final suma los puntos de los cinco entregables. El máximo es 10. Cada criterio indica exactamente qué tiene que cumplir para conseguir los puntos.</p>
-
-  <table class="rubric-table" style="margin-bottom:1.5rem">
-    <thead>
-      <tr><th style="width:20%">Entregable</th><th style="width:28%">Criterio</th><th>Para conseguir los puntos…</th><th style="width:76px;text-align:center">Pts</th></tr>
-    </thead>
+  <p class="body-text">La puntuación final es la media ponderada de los seis criterios. El equipo con mayor puntuación gana.</p>
+  <table class="rubric-table">
+    <thead><tr><th>Criterio</th><th>0 pts</th><th>4 pts</th><th>7 pts</th><th class="gold-col">10 pts</th><th>Peso</th></tr></thead>
     <tbody>
-
-      <!-- PROTOTIPO -->
-      <tr>
-        <td rowspan="3" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--cyan)">🤖 Prototipo</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">4 pts</div></td>
-        <td><strong>Funciona en vivo</strong></td>
-        <td>Se demuestra en tiempo real ante el jurado sin fallos críticos. No es una captura ni un vídeo grabado — se ejecuta en directo.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--cyan);font-weight:700">1,5</td>
-      </tr>
-      <tr>
-        <td><strong>La IA es necesaria</strong></td>
-        <td>La IA realiza una función que sin ella sería imposible o inviable. El equipo sabe explicar en una frase qué hace exactamente la IA en su solución.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--cyan);font-weight:700">1,5</td>
-      </tr>
-      <tr>
-        <td><strong>Resuelve algo concreto</strong></td>
-        <td>La solución aborda un problema específico del colectivo elegido. No intenta resolverlo todo — se centra en algo real y acotado.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--cyan);font-weight:700">1</td>
-      </tr>
-
-      <!-- VÍDEO -->
-      <tr>
-        <td rowspan="2" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--lime)">🎬 Vídeo</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">1,5 pts</div></td>
-        <td><strong>Guion y estructura</strong></td>
-        <td>Dura entre 60 y 90 segundos. Sigue la estructura: problema → solución → llamada a la acción. Se entiende sin que nadie lo explique antes de reproducirlo.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--lime);font-weight:700">0,75</td>
-      </tr>
-      <tr>
-        <td><strong>Producción con IA</strong></td>
-        <td>Se identifican claramente elementos generados con IA: voz sintética, imágenes generadas, subtítulos automáticos o edición asistida. No es una grabación de pantalla sin editar.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--lime);font-weight:700">0,75</td>
-      </tr>
-
-      <!-- PÓSTER -->
-      <tr>
-        <td rowspan="2" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--lime)">🖼 Póster</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">1 pt</div></td>
-        <td><strong>Mensaje visual claro</strong></td>
-        <td>El titular se lee a distancia. En menos de 5 segundos se entiende a quién va dirigido y qué problema resuelve. No hay texto innecesario.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--lime);font-weight:700">0,5</td>
-      </tr>
-      <tr>
-        <td><strong>Imagen generada con IA</strong></td>
-        <td>La imagen principal está generada con una herramienta de IA (Canva Magic Media, Firefly, ImageFX…). Se identifica claramente que no es una foto de stock ni una imagen manual.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--lime);font-weight:700">0,5</td>
-      </tr>
-
-      <!-- PRESENTACIÓN -->
-      <tr>
-        <td rowspan="2" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--gold)">🎤 Presentación</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">1,5 pts</div></td>
-        <td><strong>Pitch y demo</strong></td>
-        <td>En 7 minutos: explican el problema, demuestran la solución en vivo y muestran el vídeo y el póster. Todo el equipo habla — no presenta solo una persona.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--gold);font-weight:700">1</td>
-      </tr>
-      <tr>
-        <td><strong>Reflexión crítica</strong></td>
-        <td>El equipo identifica qué no funcionó y qué cambiaría. No venden más de lo que tienen — los límites del proyecto se explican con honestidad.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--gold);font-weight:700">0,5</td>
-      </tr>
-
-      <!-- FICHAS -->
-      <tr>
-        <td rowspan="2" style="vertical-align:top;padding-top:1rem"><strong style="color:var(--mag)">📋 Fichas</strong><div style="font-size:.7rem;color:var(--mid);margin-top:.3rem;font-family:var(--fm)">2 pts</div></td>
-        <td><strong>Completas y entregadas</strong></td>
-        <td>Las tres fichas (R1, R2, R3) están entregadas con todos los campos rellenos: objetivos, capturas con explicación propia y prompts exactos utilizados.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--mag);font-weight:700">1</td>
-      </tr>
-      <tr>
-        <td><strong>Proceso real documentado</strong></td>
-        <td>Las fichas incluyen errores, alucinaciones de la IA o decisiones de cambio — no solo los éxitos. Se nota que se rellenaron durante el proceso, no en el último momento.</td>
-        <td style="text-align:center;font-family:var(--fm);color:var(--mag);font-weight:700">1</td>
-      </tr>
-
-      <!-- TOTAL -->
-      <tr style="background:#1a1a1a">
-        <td colspan="3" style="font-family:var(--fh);font-weight:800;color:var(--white)">Total</td>
-        <td style="text-align:center;font-family:var(--fh);font-weight:900;font-size:1.2rem;color:var(--white)">10</td>
-      </tr>
-
+      <tr><td>Colectivo e impacto social</td><td>Sin colectivo</td><td>Colectivo vago</td><td>Concreto y justificado</td><td class="gold-col">Impacto real y medible</td><td class="peso">15%</td></tr>
+      <tr><td>Solución con IA</td><td>La IA no aporta</td><td>Uso superficial</td><td>Resuelve algo clave</td><td class="gold-col">Sin IA no existiría</td><td class="peso">20%</td></tr>
+      <tr><td>Prototipo funcional</td><td>No funciona</td><td>Parcialmente</td><td>Funciona y cumple</td><td class="gold-col">Sólido y bien ejecutado</td><td class="peso">20%</td></tr>
+      <tr><td>Herramienta comunicación</td><td>Sin coherencia</td><td>Básica</td><td>Bien ejecutada</td><td class="gold-col">Sorprende, se recuerda</td><td class="peso">20%</td></tr>
+      <tr><td>Pitch ante el jurado</td><td>Confuso</td><td>A medias</td><td>Claro y con demo</td><td class="gold-col">Engancha desde el inicio</td><td class="peso">15%</td></tr>
+      <tr><td>Reflexión crítica</td><td>Sin análisis</td><td>Superficial</td><td>Analizan qué falló</td><td class="gold-col">Mejoras concretas y reales</td><td class="peso">10%</td></tr>
+      <tr class="rubric-total"><td colspan="5">Puntuación total — media ponderada</td><td class="peso">100%</td></tr>
     </tbody>
   </table>
-
   <div class="sidebox sb-gold">
     <div class="sidebox-bar"></div>
     <div class="sidebox-body">
-      <div class="sidebox-label">💡 Lo que marca la diferencia entre un 7 y un 10</div>
-      <div class="sidebox-item">El prototipo funciona en vivo sin ayuda — no hay que disculparse por nada.</div>
-      <div class="sidebox-item">El vídeo se entiende solo, sin que el equipo lo explique antes de reproducirlo.</div>
-      <div class="sidebox-item">El pitch es honesto: dicen qué no llegaron a hacer y por qué. El jurado lo valora más que vender lo que no existe.</div>
-      <div class="sidebox-item">Las fichas tienen evidencia real del proceso — no son un resumen escrito al último momento.</div>
+      <div class="sidebox-label">🏆 Lo que busca el jurado en el proyecto ganador</div>
+      <div class="sidebox-item">Proyectos que entiendan para qué sirve la IA — y dónde falla.</div>
+      <div class="sidebox-item">Un pitch honesto sobre los límites vale más que uno que vende lo que no existe.</div>
+      <div class="sidebox-item">La herramienta de comunicación se valora igual que la solución técnica.</div>
     </div>
   </div>
-
 </section>
 
 
@@ -1687,6 +1241,118 @@ body{font-family:var(--fb);background:#0f0f0f;color:var(--white);min-height:100v
   </div>
 </footer>
 
+<!-- ══════════════════════════════════════════════════════════════
+     MODAL GANADORES
+══════════════════════════════════════════════════════════════ -->
+<div id="winners-overlay" style="
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.96);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+  font-family:'Syne',sans-serif;
+  opacity:0;pointer-events:none;
+  transition:opacity .5s ease;
+">
+  <!-- Fondo animado -->
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+    <div id="wbg1" style="position:absolute;width:600px;height:600px;border-radius:50%;
+      background:radial-gradient(circle,rgba(192,139,0,.18) 0%,transparent 70%);
+      top:-150px;right:-100px;animation:pulse 4s ease-in-out infinite"></div>
+    <div id="wbg2" style="position:absolute;width:500px;height:500px;border-radius:50%;
+      background:radial-gradient(circle,rgba(226,0,90,.12) 0%,transparent 70%);
+      bottom:-100px;left:-80px;animation:pulse 5s ease-in-out infinite reverse"></div>
+  </div>
+
+  <!-- FASE 1: Cuenta atrás -->
+  <div id="w-countdown" style="text-align:center;position:relative;z-index:1">
+    <div style="font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.2em;color:#888;text-transform:uppercase;margin-bottom:1.5rem">
+      AI Creative Challenge · Demo Day
+    </div>
+    <div style="font-size:.9rem;color:#aaa;letter-spacing:.1em;margin-bottom:2rem">Y los ganadores son...</div>
+    <div id="countdown-num" style="
+      font-size:clamp(8rem,25vw,16rem);font-weight:800;line-height:1;
+      color:#C08B00;
+      text-shadow:0 0 80px rgba(192,139,0,.5);
+      transition:all .15s ease;
+    ">3</div>
+  </div>
+
+  <!-- FASE 2: Ganadores -->
+  <div id="w-winners" style="display:none;text-align:center;position:relative;z-index:1;width:100%;max-width:820px;padding:2rem">
+
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:#888;text-transform:uppercase;margin-bottom:.75rem">
+      AI Creative Challenge · Demo Day 2025–26
+    </div>
+    <div style="font-size:clamp(1.4rem,4vw,2rem);font-weight:800;color:#C08B00;margin-bottom:.4rem;letter-spacing:.02em">
+      🏆 Mejores proyectos
+    </div>
+    <div style="height:2px;background:linear-gradient(90deg,transparent,#C08B00,transparent);margin:.75rem auto 2rem;width:200px"></div>
+
+    <!-- Tarjetas -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem">
+
+      <!-- 4ºAB -->
+      <div id="card-ab" style="
+        background:#111;border:1px solid rgba(192,139,0,.3);border-radius:12px;
+        padding:1.5rem 1.75rem;text-align:left;
+        box-shadow:0 0 40px rgba(192,139,0,.1);
+        opacity:0;transform:translateY(20px);
+        transition:all .6s ease;
+      ">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:#888;text-transform:uppercase;margin-bottom:.75rem">4º AB</div>
+        <div style="width:32px;height:2px;background:#E2005A;margin-bottom:1rem"></div>
+        <div style="font-size:clamp(1rem,2.2vw,1.25rem);font-weight:800;color:#fff;line-height:1.6;font-family:'Syne',sans-serif">
+          Enrique Manzanares Cos<br>
+          Pablo Rafael López Rubio<br>
+          Diego Prados Casasús<br>
+          Gonzalo Castilla Medina
+        </div>
+      </div>
+
+      <!-- 4ºE -->
+      <div id="card-e" style="
+        background:#111;border:1px solid rgba(192,139,0,.3);border-radius:12px;
+        padding:1.5rem 1.75rem;text-align:left;
+        box-shadow:0 0 40px rgba(192,139,0,.1);
+        opacity:0;transform:translateY(20px);
+        transition:all .6s ease .3s;
+      ">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:#888;text-transform:uppercase;margin-bottom:.75rem">4º E · Los Skiviris</div>
+        <div style="width:32px;height:2px;background:#0094C6;margin-bottom:1rem"></div>
+        <div style="font-size:clamp(1rem,2.2vw,1.25rem);font-weight:800;color:#fff;line-height:1.6;font-family:'Syne',sans-serif">
+          Daniel Guidolin Carrasco<br>
+          Pablo Rojo Vilches<br>
+          Nicolás Calvarro Vicente
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:2rem;padding:0 1rem">
+      <div style="font-size:clamp(1rem,2.5vw,1.2rem);color:#ddd;line-height:1.7;font-style:italic;max-width:580px;margin:0 auto">
+        Enhorabuena a todos los equipos. Habéis demostrado que con esfuerzo, creatividad y ganas de mejorar el mundo se pueden hacer cosas increíbles. Estoy muy orgullos@ de vosotr@s.
+      </div>
+      <div style="margin-top:1.25rem;font-size:clamp(.9rem,2vw,1.05rem);color:#C08B00;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto">
+        Y una enhorabuena muy especial a los equipos ganadores — habéis trabajado de forma excepcional y os lo habéis ganado del todo. 🏆
+      </div>
+    </div>
+
+    <button onclick="closeWinners()" style="
+      background:none;border:1px solid rgba(255,255,255,.15);color:#666;
+      font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;
+      padding:.5rem 1.5rem;border-radius:99px;cursor:pointer;
+      transition:all .2s ease;
+    " onmouseover="this.style.borderColor='rgba(255,255,255,.4)';this.style.color='#aaa'"
+       onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='#666'">
+      Cerrar
+    </button>
+  </div>
+</div>
+
+<style>
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.1);opacity:1}}
+@keyframes countFlash{0%{transform:scale(1.3);opacity:0}30%{transform:scale(1);opacity:1}80%{opacity:1}100%{opacity:0;transform:scale(.8)}}
+</style>
+
 <script>
 function goToApp(){
   document.getElementById('app').scrollIntoView({behavior:'smooth'});
@@ -1697,6 +1363,54 @@ function switchTab(n){
   document.getElementById('app').scrollIntoView({behavior:'smooth'});
 }
 function toggleFase(h){h.closest('.fase').classList.toggle('open')}
+// ── WINNERS MODAL ──
+(function(){
+  const overlay = document.getElementById('winners-overlay');
+  const countEl = document.getElementById('countdown-num');
+  const phaseCount = document.getElementById('w-countdown');
+  const phaseWin = document.getElementById('w-winners');
+
+  // Mostrar overlay
+  setTimeout(()=>{
+    overlay.style.opacity = '1';
+    overlay.style.pointerEvents = 'auto';
+    runCountdown(3);
+  }, 400);
+
+  function runCountdown(n){
+    if(n === 0){
+      // Transición a ganadores
+      phaseCount.style.transition = 'opacity .4s';
+      phaseCount.style.opacity = '0';
+      setTimeout(()=>{
+        phaseCount.style.display = 'none';
+        phaseWin.style.display = 'block';
+        // Animar tarjetas
+        setTimeout(()=>{
+          document.getElementById('card-ab').style.opacity = '1';
+          document.getElementById('card-ab').style.transform = 'translateY(0)';
+        }, 100);
+        setTimeout(()=>{
+          document.getElementById('card-e').style.opacity = '1';
+          document.getElementById('card-e').style.transform = 'translateY(0)';
+        }, 400);
+      }, 400);
+      return;
+    }
+    countEl.textContent = n;
+    countEl.style.animation = 'none';
+    countEl.offsetHeight; // reflow
+    countEl.style.animation = 'countFlash 1s ease forwards';
+    setTimeout(()=> runCountdown(n - 1), 1000);
+  }
+})();
+
+function closeWinners(){
+  const overlay = document.getElementById('winners-overlay');
+  overlay.style.opacity = '0';
+  overlay.style.pointerEvents = 'none';
+}
+
 function filtrarTerminos(q){
   const s=q.toLowerCase().trim();
   const cards=document.querySelectorAll('.term-card');
